@@ -1,15 +1,21 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import jsonld from 'jsonld';
 import * as Ed25519Multikey from '@digitalbazaar/ed25519-multikey';
+
+function asPath(file) {
+  return file instanceof URL ? fileURLToPath(file) : file;
+}
 
 export async function readJson(file) {
   return JSON.parse(await fs.readFile(file, 'utf8'));
 }
 
 export async function writeJson(file, value) {
-  await fs.mkdir(path.dirname(file), {recursive: true});
-  await fs.writeFile(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+  const target = asPath(file);
+  await fs.mkdir(path.dirname(target), {recursive: true});
+  await fs.writeFile(target, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
 export async function generateDidKey() {
