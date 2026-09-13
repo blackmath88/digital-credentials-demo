@@ -4,6 +4,12 @@ A small, standards-oriented prototype for turning a training certificate into a 
 
 The first fixture is a digital representation of an existing **Change Management Training** certificate from Implement Learning Institute (26 August 2025). It is intentionally presented as a **demo representation**, not as a newly issued or cryptographically signed credential from Implement.
 
+## Pitch page
+
+Open `pitch.html` for the product story: what the product is, why Open Badges 3.0 matters beyond a nice HTML certificate, participant and organiser UX, higher-education reference cases, and the proposed path for improving our certificates.
+
+The pitch uses reference cases from MIT / the Digital Credentials Consortium, ETH Zürich, Oxford, SUNY, Deakin University and the European Commission / Europass.
+
 ## Bite 1
 
 Bite 1 proves the participant experience before we add credential signing, issuer accounts or batch issuance. It includes a premium public credential page, responsive/mobile treatment, A4 print/PDF mode, QR/share actions, LinkedIn handoff, CV HTML embed, structured credential record, social metadata, and short conversation briefs for University of Basel and Implement.
@@ -16,11 +22,15 @@ No build step or package install is required.
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Then open:
+
+- `http://localhost:8000` — participant credential demo
+- `http://localhost:8000/pitch.html` — product pitch
 
 ## Project map
 
 - `index.html` — public credential experience
+- `pitch.html` — visual product pitch for University of Basel / Implement conversations
 - `styles.css` — editorial/institutional visual system + print treatment
 - `app.js` — render/share/embed/QR interactions
 - `credential.json` — Bite 1 domain record (not yet an Open Badge)
