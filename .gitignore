@@ -1,0 +1,11 @@
+# Local signing material must never be committed
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.*
+
+# Common local noise
+.DS_Store
+__pycache__/
