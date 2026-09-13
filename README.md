@@ -1,12 +1,57 @@
 # Digital Credentials Demo
 
-A small, standards-oriented prototype for turning a training certificate into a durable digital credential that people can understand, keep, share and verify.
+> The website makes the certificate desirable.
+> Open Badges makes it portable, verifiable and interoperable.
 
-The first fixture is a digital representation of an existing **Change Management Training** certificate from Implement Learning Institute (26 August 2025). It is intentionally presented as a **demo representation**. The signed demo credentials are issued only by prototype demo issuers — not by Implement Learning Institute or University of Basel.
+## What is this?
+
+A working prototype that turns a training certificate into a **portable, machine-readable, verifiable learning record**.
+
+The certificate page is the part people see. It is one *view* of the credential — not the credential itself. Underneath it there is an Open Badges 3.0 record, a cryptographic proof, and a participant who can keep and reuse the credential somewhere else entirely.
+
+The first fixture is a digital representation of an existing **Change Management Training** certificate from Implement Learning Institute (26 August 2025), used throughout as demo data.
+
+## Why does it matter?
+
+A good training usually ends with a weak artefact: a PDF in an inbox. The achievement, the competencies, the criteria and the issuer exist as pixels rather than as reusable learning data, and verifying it means emailing someone.
+
+The strategic question is not only how to issue better certificates:
+
+> It is whether we want a standards-based way to represent learning across internal and external providers.
+
+That is the difference between a nicer certificate website and infrastructure an institution can issue, recognise and combine credentials with.
+
+## Who is it for?
+
+| | What they get |
+| --- | --- |
+| **Participants** | Proof of learning they keep, use on LinkedIn or a CV, and that anyone can verify — independent of this website |
+| **Organisers** | Define the achievement once, issue to a whole cohort, standardised metadata, far less manual PDF work |
+| **Institutions** | Reusable learning infrastructure: one model for internal and partner-delivered learning, interoperability instead of lock-in |
+
+## Why Open Badges?
+
+Open Badges 3.0 is an **open 1EdTech standard**, built on **W3C Verifiable Credentials**. It is education-specific — achievement, criteria, competencies, evidence and recipient are first-class — and it is what higher education is converging on.
+
+Using it means our site is not the source of truth. Someone can check a credential without trusting the page that displays it.
+
+MIT and the Digital Credentials Consortium appear throughout this repo as **reference implementations and ecosystem leaders** — not as owners of a competing standard. Testing against an independent implementation is a much stronger interoperability check than our own verifier agreeing with our own issuer.
+
+## Read the case
+
+- `index.html` — the short version: credential → why it matters → the standard → institutional opportunity → pilot
+- `pitch.html` — the long-form product story and higher-ed reference cases
+- `docs/product-case.md` — the written case, including the University of Basel opportunity, the Implement pilot and the issuer / endorsement models
+
+## Trust boundary
+
+The demo credentials in this repository are genuinely signed — by a **prototype demo issuer**. Nothing here is issued by, signed by, or endorsed by Implement Learning Institute, University of Basel, MIT or the Digital Credentials Consortium, and the pilot scenarios described are **proposals that no organisation has agreed to**.
+
+Moving from a demo issuer to an institutional one is an organisational decision — issuer identity, key custody, issuance governance and revocation — not a remaining coding task.
 
 ## Pitch page
 
-Open `pitch.html` for the product story: what the product is, why Open Badges 3.0 matters beyond a nice HTML certificate, participant and organiser UX, higher-education reference cases, and the proposed path for improving our certificates.
+Open `pitch.html` for the long-form product story: what the product is, why Open Badges 3.0 matters beyond a nice HTML certificate, participant and organiser UX, higher-education reference cases, and the proposed path for improving our certificates.
 
 The pitch uses reference cases from MIT / the Digital Credentials Consortium, ETH Zürich, Oxford, SUNY, Deakin University and the European Commission / Europass.
 
@@ -103,6 +148,7 @@ Then open:
 - `.github/workflows/dcc-compat.yml` — CI issue → verify interoperability check
 - `docs/bite-3-1.md` — DCC compatibility and trust-boundary notes
 - `docs/bite-4.md` — organiser workflow, data model and what is simulated
+- `docs/product-case.md` — product thesis, participant/organiser/institutional value, Basel opportunity, Implement pilot, issuer models
 - `docs/concept.md` — product thesis and scope
 - `docs/standards.md` — Open Badges 3.0 + MIT/DCC path
 - `docs/pitch-unibas.md` — University of Basel conversation brief
@@ -119,7 +165,8 @@ Then open:
 5. Credential integrity can be checked without trusting the display page.
 6. A second verifier can understand the credential proof shape.
 7. Issuing 20 credentials looks easier than manually producing 20 PDFs.
-8. The demo is credible enough to start a conversation with University of Basel L&D and Implement Consulting Group.
+8. A visitor understands within a minute that this is more than an HTML certificate generator.
+9. The demo is credible enough to start a conversation with University of Basel L&D and Implement Consulting Group.
 
 ## Standards direction
 
