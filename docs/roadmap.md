@@ -52,6 +52,22 @@ The technical bites proved the machinery but left an obvious question open: *isn
 
 Trust boundary is restated rather than relaxed: pilot models are proposals, reference cases are citations not endorsements, and every signed credential here is signed by a prototype demo issuer.
 
+## Bite 5 — pilot package
+
+Status: implemented on `feat/bite-5-pilot-package`
+
+The repository stops being a prototype looking for a use and becomes a decision dossier. `pilot.html` is the discussion surface; `docs/pilot/` holds the charter, governance model, technical architecture, success metrics, risks, 90-day plan and a four-minute decision brief; `docs/research/` synthesises the commissioned Swiss and European landscape report, which is archived alongside it.
+
+Core decisions carried from the research: University of Basel as **single formal issuer**, Implement Consulting Group as delivery and co-design partner with an **optional separate endorsement** — no dual cryptographic issuance, because Open Badges 3.0 does not model it. One non-credit cohort. The existing PDF retained as the control arm.
+
+No product infrastructure was added. The remaining gaps — issuer authority, key custody, status/revocation, hosting, identity governance, delivery — are institutional decisions, which is the argument for this being a stopping point.
+
+`docs/public-extraction-plan.md` records the follow-up: splitting a clean, generic public reference implementation out of this pilot lineage.
+
+## This repository's stopping point
+
+The build is complete. The next step is an organisational decision on a bounded live pilot, not more prototype code. See `docs/pilot/decision-brief.md`.
+
 ## Explicit non-goals for now
 
 No LMS. No badge marketplace. No blockchain. No learner social network. No sprawling admin SaaS.
