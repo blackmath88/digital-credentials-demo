@@ -48,6 +48,24 @@ This generates the public `issuer-did.json` and `obv3/dcc-signed-credential.json
 
 This proves a DCC-compatible technical trust path, but **not institutional authority**. A real pilot still needs an institution-controlled identity, key custody, issuance governance and status/revocation.
 
+### Bite 4 — organiser issuance workflow
+
+`issuer.html` is the organiser side of the product: a five-step workflow that makes issuing a batch feel smaller than producing a batch of PDFs.
+
+```text
+Training → Credential content → Participants → Preview → Issue
+```
+
+- pre-filled with the Change Management Training fixture
+- paste a `name,email` list (or drop in `demo-participants.csv`); parsing and validation happen in the browser
+- preview one participant's credential page, its public fields and its Open Badges 3.0 record
+- issue the batch locally and see a status table of recipients, credential ids and delivery state
+- export any record as a DCC signing input for the Bite 3.1 `did:key` / `eddsa-rdfc-2022` path
+
+Nothing is uploaded, stored or sent. Records are **demo issuances** from a **prototype issuer** and are **not institutionally signed** — every record carries `institutionallySigned: false`.
+
+See `docs/bite-4.md`.
+
 ### Run the visual demo
 
 ```bash
@@ -61,6 +79,7 @@ Then open:
 - `http://localhost:8000/standards-lab.html` — Open Badges mapping
 - `http://localhost:8000/verify.html` — Bite 3 cryptographic verification + tamper test
 - `http://localhost:8000/dcc-lab.html` — Bite 3.1 DCC compatibility / external-verifier handoff
+- `http://localhost:8000/issuer.html` — Bite 4 organiser issuance workflow
 
 ## Project map
 
@@ -69,6 +88,9 @@ Then open:
 - `standards-lab.html` — Bite 2 standards mapping
 - `verify.html` / `verify.js` — Bite 3 cryptographic verification surface
 - `dcc-lab.html` — Bite 3.1 DCC compatibility surface
+- `issuer.html` / `issuer.css` / `issuer.js` — Bite 4 organiser workspace
+- `issuance.js` — Bite 4 issuance model: fixtures, CSV parsing, OB 3.0 mapping, deterministic issuance
+- `demo-participants.csv` — five demo participants for the organiser workflow
 - `credential.json` — product-domain source record
 - `obv3/credential-draft.json` — unsigned Open Badges 3.0 mapping
 - `obv3/credential-jwt-payload.json` / `credential-jwt.txt` — Bite 3 signed VC-JWT artefacts
@@ -80,6 +102,7 @@ Then open:
 - `tools/verify-dcc.mjs` — independent Data Integrity roundtrip check
 - `.github/workflows/dcc-compat.yml` — CI issue → verify interoperability check
 - `docs/bite-3-1.md` — DCC compatibility and trust-boundary notes
+- `docs/bite-4.md` — organiser workflow, data model and what is simulated
 - `docs/concept.md` — product thesis and scope
 - `docs/standards.md` — Open Badges 3.0 + MIT/DCC path
 - `docs/pitch-unibas.md` — University of Basel conversation brief
@@ -107,4 +130,4 @@ The implementation targets **1EdTech Open Badges 3.0** and uses MIT Digital Cred
 - DCC VerifierPlus: https://verifierplus.org/
 - EdDSA RDFC 2022 cryptosuite: https://github.com/digitalbazaar/eddsa-rdfc-2022-cryptosuite
 
-The next product bite is the tiny organiser workflow: define an achievement → import participants → preview → issue → deliver.
+The organiser workflow now exists as a local demo. The next step is production trust and delivery: an institution-controlled issuer identity, key custody, credential status/revocation, real per-participant credential URLs and an actual delivery channel. See `docs/bite-4.md` for the full list.

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f3efe6" />
+  <title>Issuer workspace — Digital Credentials Demo</title>
+  <meta name="description" content="Bite 4: a tiny organiser issuance workflow — define a training, paste participants, preview, issue demo credentials." />
+  <link rel="stylesheet" href="./issuer.css" />
+</head>
+<body>
+  <header class="site-nav">
+    <div class="shell">
+      <strong>Digital Credentials / Issuer</strong>
+      <nav class="links" aria-label="Demo surfaces">
+        <a href="./index.html">Credential</a>
+        <a href="./pitch.html">Pitch</a>
+        <a href="./issuer.html" aria-current="page">Issuer</a>
+        <a href="./standards-lab.html">Standards</a>
+        <a href="./verify.html">Verify</a>
+        <a href="./dcc-lab.html">DCC</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="rail" aria-label="Project status">
+      <pre>Digital Credentials Demo
+
+Bite 1   [██████] Participant experience        ✓
+Bite 2   [██████] Open Badges 3.0               ✓
+Bite 3   [██████] Cryptographic proof           ✓
+Bite 3.1 [██████] DCC / external trust shape    ✓
+Bite 4   [██████] Organiser issuance workflow   ✓</pre>
+    </div>
+
+    <section class="masthead">
+      <p class="eyebrow">Bite 4 · organiser workspace</p>
+      <h1>Issuing 20 credentials should take less effort than making 20 PDFs.</h1>
+      <p class="lede">Define the training once, paste the participant list, look at one credential, issue the batch. No accounts, no dashboard, no LMS — the whole workflow is five screens.</p>
+      <p class="flowline"><b>Training</b> → <b>Credential</b> → <b>Participants</b> → <b>Preview</b> → <b>Issue</b></p>
+    </section>
+
+    <div class="trust-strip">
+      <span class="tag">Demo issuance</span>
+      <span>Prototype issuer · records are <strong>not institutionally signed</strong> · nothing here is issued by or on behalf of Implement Learning Institute or University of Basel.</span>
+    </div>
+
+    <nav class="stepnav" id="stepnav" aria-label="Issuance steps">
+      <button type="button" data-goto="1" aria-current="step"><span class="num">01</span><span class="label">Training</span></button>
+      <button type="button" data-goto="2"><span class="num">02</span><span class="label">Credential content</span></button>
+      <button type="button" data-goto="3"><span class="num">03</span><span class="label">Participants</span></button>
+      <button type="button" data-goto="4"><span class="num">04</span><span class="label">Preview</span></button>
+      <button type="button" data-goto="5"><span class="num">05</span><span class="label">Issue</span></button>
+    </nav>
+
+    <!-- ---------------------------------------------------------- Step 1 -->
+    <section class="step" id="step-1" aria-labelledby="step-1-title">
+      <div class="step-head">
+        <div>
+          <h2 id="step-1-title">Define the training once.</h2>
+          <p>These details are shared by every credential in the batch. They come pre-filled with the Change Management Training fixture used throughout this demo.</p>
+        </div>
+        <div class="aside">Step 01 of 05</div>
+      </div>
+
+      <div class="sheet">
+        <div class="sheet-title"><span>Training</span><span id="training-echo">Change Management Training</span></div>
+        <div class="fields">
+          <div class="field wide">
+            <label for="t-title">Title</label>
+            <input id="t-title" name="title" type="text" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label for="t-issuer">Issuer named on the certificate</label>
+            <input id="t-issuer" name="issuer" type="text" autocomplete="off" />
+            <p class="hint">Displayed to participants. It does not grant this demo any authority to sign on their behalf.</p>
+          </div>
+          <div class="field">
+            <label for="t-date">Date</label>
+            <input id="t-date" name="date" type="date" />
+          </div>
+          <div class="field">
+            <label for="t-duration">Duration</label>
+            <input id="t-duration" name="duration" type="text" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label for="t-location">Location</label>
+            <input id="t-location" name="location" type="text" autocomplete="off" />
+          </div>
+          <div class="field wide">
+            <label for="t-description">Short description</label>
+            <textarea id="t-description" name="description" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-foot">
+        <span class="status">Everything stays in this browser tab. Nothing is uploaded.</span>
+        <div class="btn-row">
+          <button type="button" class="btn quiet" data-action="reset">Reset to demo data</button>
+          <button type="button" class="btn primary" data-next="2">Continue to credential content</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------- Step 2 -->
+    <section class="step" id="step-2" aria-labelledby="step-2-title" hidden>
+      <div class="step-head">
+        <div>
+          <h2 id="step-2-title">Say what the credential actually claims.</h2>
+          <p>Competencies and the completion statement become the Open Badges <code>achievement</code> — the part that makes a credential more useful than a scanned PDF.</p>
+        </div>
+        <div class="aside">Step 02 of 05</div>
+      </div>
+
+      <div class="sheet">
+        <div class="sheet-title"><span>Credential content</span><span id="competency-count">7 competencies</span></div>
+        <div class="fields">
+          <div class="field wide">
+            <label for="c-competencies">Competencies / skills — one per line</label>
+            <textarea id="c-competencies" rows="8"></textarea>
+          </div>
+          <div class="field wide">
+            <label for="c-criteria">Criteria / completion statement</label>
+            <textarea id="c-criteria" rows="4"></textarea>
+            <p class="hint">Maps to <code>achievement.criteria.narrative</code>.</p>
+          </div>
+          <div class="field">
+            <label for="c-signatories">Signatories (optional) — one per line</label>
+            <textarea id="c-signatories" rows="3"></textarea>
+            <p class="hint">Shown on the participant page as names printed on the source certificate. Not a cryptographic signature.</p>
+          </div>
+          <div class="field">
+            <label for="c-brand">Branding / issuer name shown to participants</label>
+            <input id="c-brand" type="text" autocomplete="off" />
+            <p class="hint">The machine-readable record always names the prototype demo issuer separately.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-foot">
+        <span class="status">Written once per training, reused for every participant.</span>
+        <div class="btn-row">
+          <button type="button" class="btn quiet" data-next="1">Back</button>
+          <button type="button" class="btn primary" data-next="3">Continue to participants</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------- Step 3 -->
+    <section class="step" id="step-3" aria-labelledby="step-3-title" hidden>
+      <div class="step-head">
+        <div>
+          <h2 id="step-3-title">Paste the list you already have.</h2>
+          <p>Two columns: <code>name,email</code>. A header row is optional. Parsing happens in this browser — no upload, no import wizard, no account creation.</p>
+        </div>
+        <div class="aside">Step 03 of 05</div>
+      </div>
+
+      <div class="sheet">
+        <div class="sheet-title"><span>Participants · CSV paste</span><span><a href="./demo-participants.csv" download>demo-participants.csv</a></span></div>
+        <div class="field wide" style="padding:0">
+          <label class="visually-hidden" for="p-csv">Participant list</label>
+          <textarea id="p-csv" class="csv" spellcheck="false" style="padding:18px"></textarea>
+        </div>
+        <dl class="readout" id="parse-readout">
+          <div id="readout-valid" class="state-ok"><dt>Ready to issue</dt><dd>0<small>valid recipients</small></dd></div>
+          <div id="readout-invalid"><dt>Needs attention</dt><dd>0<small>rows with problems</small></dd></div>
+          <div id="readout-state"><dt>Parse state</dt><dd style="font-size:20px">—<small id="readout-state-note">Paste a list to begin.</small></dd></div>
+        </dl>
+        <div id="parsed-table-wrap" class="table-scroll">
+          <div class="empty">No rows parsed yet.</div>
+        </div>
+      </div>
+
+      <div class="step-foot">
+        <span class="status" id="participants-status">Nothing parsed yet.</span>
+        <div class="btn-row">
+          <button type="button" class="btn quiet" data-next="2">Back</button>
+          <button type="button" class="btn quiet" data-action="load-demo-csv">Load 5 demo participants</button>
+          <button type="button" class="btn primary" data-next="4">Preview credentials</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------- Step 4 -->
+    <section class="step" id="step-4" aria-labelledby="step-4-title" hidden>
+      <div class="step-head">
+        <div>
+          <h2 id="step-4-title">Look at one credential before issuing all of them.</h2>
+          <p>Left: what the participant receives. Right: what the public page carries and what the machine-readable record contains.</p>
+        </div>
+        <div class="aside">
+          <div class="participant-switch">
+            <span class="stepper">
+              <button type="button" id="prev-participant" aria-label="Previous participant">←</button>
+              <button type="button" id="next-participant" aria-label="Next participant">→</button>
+            </span>
+            <label class="visually-hidden" for="participant-select">Participant</label>
+            <select id="participant-select"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-grid">
+        <article class="cert" id="preview-cert" aria-label="Participant credential preview">
+          <div class="cert-top"><span>Participant view · preview</span><span id="cert-id">—</span></div>
+          <div class="cert-body">
+            <p class="cert-kicker">Certificate of completion</p>
+            <h3 id="cert-title">—</h3>
+            <p class="cert-awarded">awarded to</p>
+            <p class="cert-name" id="cert-recipient">—</p>
+            <dl class="cert-meta">
+              <div><dt>Issuer</dt><dd id="cert-issuer">—</dd></div>
+              <div><dt>Issued</dt><dd id="cert-date">—</dd></div>
+              <div><dt>Duration</dt><dd id="cert-duration">—</dd></div>
+            </dl>
+            <p class="cert-signatories" id="cert-signatories">—</p>
+          </div>
+          <div class="cert-foot"><span id="cert-competencies">—</span><span>Demo issuance</span></div>
+        </article>
+
+        <div>
+          <div class="sheet">
+            <div class="sheet-title"><span>Public credential page would contain</span></div>
+            <table class="kv"><tbody id="public-fields"></tbody></table>
+          </div>
+
+          <div class="sheet">
+            <div class="sheet-title">
+              <span>Machine-readable record · Open Badges 3.0</span>
+              <span id="record-summary">—</span>
+            </div>
+            <pre class="json" id="record-json">Select a participant.</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-foot">
+        <span class="status" id="preview-status">—</span>
+        <div class="btn-row">
+          <button type="button" class="btn quiet" data-next="3">Back</button>
+          <button type="button" class="btn primary" data-next="5">Continue to issuance</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------- Step 5 -->
+    <section class="step" id="step-5" aria-labelledby="step-5-title" hidden>
+      <div class="step-head">
+        <div>
+          <h2 id="step-5-title">Issue the batch.</h2>
+          <p>Issuance runs locally and is deterministic: the same training and the same list always produce the same credential ids.</p>
+        </div>
+        <div class="aside">Step 05 of 05</div>
+      </div>
+
+      <div class="issue-head">
+        <div class="issue-statement">
+          <h3 id="issue-headline">Issue 0 credentials</h3>
+          <p id="issue-subline">Add participants first.</p>
+          <div class="btn-row">
+            <button type="button" class="btn primary large" id="issue-button" disabled>Issue credentials</button>
+            <button type="button" class="btn quiet" id="clear-issuance" hidden>Clear batch</button>
+          </div>
+        </div>
+        <div class="issue-side">
+          <dl>
+            <dt>Issuer</dt><dd>Digital Credentials Demo Issuer <span class="pill warn">prototype</span></dd>
+            <dt>Proof</dt><dd>None — records are unsigned demo issuances</dd>
+            <dt>Delivery</dt><dd>Link handoff only. No email is sent in this bite.</dd>
+            <dt>Storage</dt><dd>This browser tab. Nothing is persisted or uploaded.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="sheet" id="issued-sheet" hidden>
+        <div class="sheet-title"><span>Issued recipients</span><span id="batch-label">—</span></div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Participant</th><th>Credential id</th><th>Delivery</th><th>Credential status</th></tr>
+            </thead>
+            <tbody id="issued-rows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="sheet" id="record-sheet" hidden>
+        <div class="sheet-title">
+          <span>Credential record · <span id="record-sheet-id">—</span></span>
+          <span class="btn-row">
+            <button type="button" class="btn quiet" id="copy-record">Copy record JSON</button>
+            <button type="button" class="btn quiet" id="copy-dcc">Copy as DCC signing input</button>
+          </span>
+        </div>
+        <pre class="json" id="issued-record-json">Select a row.</pre>
+        <p class="note" style="padding:0 18px 18px">The DCC signing input matches <code>obv3/dcc-credential-template.json</code>. Saving it there and running <code>npm run dcc:roundtrip</code> signs it through the Bite 3.1 <code>did:key</code> / <code>eddsa-rdfc-2022</code> path — as a demo issuer, not as an institution.</p>
+      </div>
+
+      <div class="step-foot">
+        <span class="status" id="issue-status">Not issued yet.</span>
+        <div class="btn-row">
+          <button type="button" class="btn quiet" data-next="4">Back to preview</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="boundary">
+      <h2>Where this stops being real.</h2>
+      <p><strong>Real:</strong> the workflow, the participant parsing, the Open Badges 3.0 mapping, the deterministic credential records, and the fact that any of these records can be signed locally through the Bite 3.1 path.</p>
+      <p><strong>Simulated:</strong> issuance authority, delivery, hosting and credential status. <code>credentialUrl</code> is a placeholder, delivery status is a label rather than a sent message, and no record carries a proof.</p>
+      <p><strong>Not claimed:</strong> that Implement Learning Institute or University of Basel issued, signed or endorsed anything produced here. A production issuer needs an institution-controlled identifier, key custody, an issuance policy and a status/revocation service.</p>
+      <div class="btn-row" style="margin-top:22px">
+        <a class="btn" href="./dcc-lab.html">Bite 3.1 trust shape</a>
+        <a class="btn" href="./verify.html">Bite 3 verifier</a>
+      </div>
+    </section>
+
+    <footer class="site-foot">
+      <span>Bite 4 · organiser issuance workflow · local, deterministic, unsigned</span>
+      <span>No accounts · no database · no email · no LMS</span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./issuer.js"></script>
+</body>
+</html>

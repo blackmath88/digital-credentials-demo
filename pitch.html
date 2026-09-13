@@ -19,7 +19,7 @@
     .wrap{width:min(calc(100% - 36px),var(--max));margin:auto}
     header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
     nav{height:62px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-    .navlinks{display:flex;gap:20px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:var(--muted)}
+    .navlinks{display:flex;gap:20px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:var(--muted)}.sitelinks{display:flex;gap:16px;flex-wrap:wrap}.sitelinks a{text-decoration:none;color:var(--muted)}.sitelinks a:hover{color:var(--ink)}.sitelinks a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
     section{padding:92px 0;border-bottom:1px solid var(--line)}
     .eyebrow{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
     h1,h2,h3,p{margin-top:0}
@@ -56,6 +56,7 @@
     @media(max-width:850px){
       .hero-grid,.two,.prototype{grid-template-columns:1fr}.three,.refgrid{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.step+.step{border-left:0;border-top:1px solid var(--line);padding-left:0}.compare{grid-template-columns:1fr}.compare>div+div{border-left:0;border-top:1px solid var(--line)}.roadmap{grid-template-columns:1fr}.roadmap .card{border-right:0;border-bottom:1px solid var(--line)}.navlinks{display:none}.certificate{padding:34px;min-height:480px}.certificate .award{font-size:40px}
     }
+    @media(max-width:1080px){.navlinks{display:none}}
     @media print{header{display:none}section{break-inside:avoid;padding:34px 0}.hero{min-height:0}.wrap{width:100%}body{background:#fff}}
   </style>
 </head>
@@ -66,6 +67,7 @@
     <div class="navlinks">
       <a href="#idea">Idea</a><a href="#why">Why</a><a href="#experience">Experience</a><a href="#proof">Higher ed</a><a href="#path">Path</a>
     </div>
+    <nav class="sitelinks" aria-label="Demo surfaces"><a href="./index.html">Credential</a><a href="./pitch.html" aria-current="page">Pitch</a><a href="./issuer.html">Issuer</a><a href="./standards-lab.html">Standards</a><a href="./verify.html">Verify</a><a href="./dcc-lab.html">DCC</a></nav>
   </nav>
 </header>
 

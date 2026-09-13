@@ -15,6 +15,19 @@ The browser renders the human-readable credential from the same structured sourc
 
 This can be served from any static host. No database, account system or signing service is required for Bite 1.
 
+## Bite 4 — organiser surface
+
+```text
+issuer.html
+   ├── issuer.css
+   ├── issuer.js      step state + rendering
+   └── issuance.js    fixtures, CSV parsing, Open Badges 3.0 mapping, issuance
+                         │
+                         └── asDccTemplate() → tools/issue-dcc.mjs (Bite 3.1 signing)
+```
+
+The organiser workflow keeps the same static-first shape: one pure domain module, one UI module, no storage and no server. `issuance.js` is the only place that knows what a credential record is.
+
 ## Later shape
 
 ```text
