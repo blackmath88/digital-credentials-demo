@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f3efe6" />
+  <title>Pilot proposal — University of Basel × Implement</title>
+  <meta name="description" content="A proposed bounded pilot for portable, verifiable professional-learning credentials: University of Basel as single formal issuer, Implement Consulting Group as delivery and co-design partner, on Open Badges 3.0." />
+  <link rel="stylesheet" href="./pilot.css" />
+</head>
+<body>
+  <header class="site-nav">
+    <div class="shell">
+      <strong>Digital Credentials / Pilot</strong>
+      <nav class="links" aria-label="Demo surfaces">
+        <a href="./index.html">Credential</a>
+        <a href="./pilot.html" aria-current="page">Pilot</a>
+        <a href="./pitch.html">Pitch</a>
+        <a href="./issuer.html">Issuer</a>
+        <a href="./standards-lab.html">Standards</a>
+        <a href="./verify.html">Verify</a>
+        <a href="./dcc-lab.html">DCC</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="masthead">
+      <p class="eyebrow">Pilot proposal · professional learning</p>
+      <div class="parties">
+        <span>University of Basel</span>
+        <span class="x" aria-hidden="true">×</span>
+        <span>Implement Consulting Group</span>
+      </div>
+      <h1>A proposed pilot for portable, verifiable professional-learning credentials — one cohort, one achievement, one formal issuer.</h1>
+      <div class="proposal-strip">
+        <span class="tag">Proposal</span>
+        <span>Neither organisation has agreed to, endorsed or adopted anything on this page. Governance, privacy and contractual points are marked as decisions requiring institutional review.</span>
+      </div>
+    </section>
+
+    <nav class="contents" aria-label="Contents">
+      <a href="#current"><span class="n">01</span><span class="t">Where we are today</span></a>
+      <a href="#proposal"><span class="n">02</span><span class="t">The proposed pilot</span></a>
+      <a href="#partnership"><span class="n">03</span><span class="t">Partnership model</span></a>
+      <a href="#learner"><span class="n">04</span><span class="t">Learner experience</span></a>
+      <a href="#trust"><span class="n">05</span><span class="t">Technical trust model</span></a>
+      <a href="#why-now"><span class="n">06</span><span class="t">Why now</span></a>
+      <a href="#boundaries"><span class="n">07</span><span class="t">Pilot boundaries</span></a>
+      <a href="#measures"><span class="n">08</span><span class="t">Success measures</span></a>
+    </nav>
+
+    <!-- 01 ------------------------------------------------------------ -->
+    <section class="band" id="current">
+      <div class="band-head">
+        <div class="band-num">01</div>
+        <div>
+          <h2>Basel already has a credible certificate. It is just not portable.</h2>
+          <p class="band-lede">Academic records are downloadable and can be authenticated through a university verification service. That is a strong baseline — and it is the thing the pilot is measured against, not the thing it replaces.</p>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div>
+          <h3>Today — PDF plus online verification</h3>
+          <span class="sub">University of Basel, current state</span>
+          <ul>
+            <li class="yes">Familiar, institutionally credible, accessible</li>
+            <li class="yes">Authenticity checkable through a university service</li>
+            <li class="no">No standard machine-readable achievement model</li>
+            <li class="no">Verification depends on the host remaining available</li>
+            <li class="no">Competencies, criteria and evidence stay as pixels</li>
+            <li class="no">Nothing the learner can take to another system</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Proposed — the same certificate, plus a credential</h3>
+          <span class="sub">Open Badges 3.0 over W3C Verifiable Credentials 2.0</span>
+          <ul>
+            <li class="yes">The certificate and PDF are retained, not replaced</li>
+            <li class="yes">Structured achievement, criteria, competencies and evidence</li>
+            <li class="yes">Signed under a Basel-controlled identity</li>
+            <li class="yes">Verifiable without trusting any Basel web page</li>
+            <li class="yes">Downloadable by the learner and readable by other tools</li>
+            <li class="yes">Revocable and correctable through a status list</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="band-note">The current model is kept as the pilot's <strong>control arm</strong>. The cohort receives both, so the comparison is measured rather than asserted.</p>
+    </section>
+
+    <!-- 02 ------------------------------------------------------------ -->
+    <section class="band" id="proposal">
+      <div class="band-head">
+        <div class="band-num">02</div>
+        <div>
+          <h2>One cohort. One achievement. Non-credit.</h2>
+          <p class="band-lede">Professional learning is deliberately lower-risk than degrees or formal academic credit: it can be piloted, measured and withdrawn without touching academic regulation, admissions or qualification frameworks.</p>
+        </div>
+      </div>
+
+      <div class="achievement">
+        <div class="achievement-main">
+          <p class="kicker">Proposed achievement</p>
+          <h3>Change Management Practitioner</h3>
+          <p style="font-size:14px;color:var(--muted);margin:0">Co-designed and delivered in partnership. Issued as an Open Badges 3.0 credential alongside the human-readable certificate Basel already produces.</p>
+        </div>
+        <dl class="achievement-facts">
+          <div class="factrow"><dt>Context</dt><dd>Professional learning / continuing education</dd></div>
+          <div class="factrow"><dt>Academic status</dt><dd><strong>Non-credit.</strong> Not ECTS, not degree credit, not a formal qualification.</dd></div>
+          <div class="factrow"><dt>Cohort</dt><dd>One cohort, 20–40 learners <span style="color:var(--muted)">— a directional recommendation, not an evidence-derived threshold</span></dd></div>
+          <div class="factrow"><dt>Formal issuer</dt><dd>University of Basel</dd></div>
+          <div class="factrow"><dt>Partner</dt><dd>Implement Consulting Group — delivery, co-design, visibly named</dd></div>
+          <div class="factrow"><dt>Standard</dt><dd>Open Badges 3.0 over W3C Verifiable Credentials 2.0</dd></div>
+          <div class="factrow"><dt>Baseline retained</dt><dd>Existing PDF and university verification service</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 03 ------------------------------------------------------------ -->
+    <section class="band" id="partnership">
+      <div class="band-head">
+        <div class="band-num">03</div>
+        <div>
+          <h2>One issuer. One partner. No dual signing.</h2>
+          <p class="band-lede">Open Badges 3.0 models a single formal issuer, and multiple proofs do not create multiple issuing authorities. Partnership is expressed in the achievement, the branding and — optionally — a separate endorsement.</p>
+        </div>
+      </div>
+
+      <div class="partnership">
+        <div class="party issuer">
+          <p class="role">Single formal issuer</p>
+          <h3>University of Basel</h3>
+          <p class="what">Holds the signing key. Stands behind the claim.</p>
+          <ul>
+            <li>Controls the issuer identity on a university domain</li>
+            <li>Signs the OpenBadgeCredential</li>
+            <li>Owns the achievement definition of record</li>
+            <li>Owns revocation and correction</li>
+          </ul>
+        </div>
+        <div class="party-join">delivered<br />with</div>
+        <div class="party">
+          <p class="role">Delivery &amp; co-design partner</p>
+          <h3>Implement Consulting Group</h3>
+          <p class="what">Named in the credential. Not a co-issuer.</p>
+          <ul>
+            <li>Co-designs the achievement and assessment</li>
+            <li>Delivers the programme</li>
+            <li>Named in achievement metadata and branding</li>
+            <li>Optionally issues a separate, independently signed endorsement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="options" style="margin-top:38px">
+        <div class="option">
+          <span class="key">A</span>
+          <span class="name">Basel issues, Implement delivers<span>Implement named as delivery partner</span></span>
+          <span class="detail">Clean and low complexity. Implement's involvement is descriptive only.</span>
+          <span class="verdict">Viable</span>
+        </div>
+        <div class="option">
+          <span class="key">B</span>
+          <span class="name">Implement issues, Basel recognises<span>Signing key outside the university</span></span>
+          <span class="detail">Weakens Basel's control and may imply less formal university responsibility.</span>
+          <span class="verdict">Not recommended</span>
+        </div>
+        <div class="option picked">
+          <span class="key">C</span>
+          <span class="name">Basel issues, achievement jointly defined<span>Implement endorses, where it can</span></span>
+          <span class="detail">Co-branded achievement, Basel as cryptographic issuer, optional separate endorsement credential from Implement.</span>
+          <span class="verdict">Recommended</span>
+        </div>
+      </div>
+
+      <p class="band-note"><strong>“Shared” does not mean two cryptographic issuers.</strong> The standards-native pattern is one formal issuer, the partner named in achievement metadata, and a separately signed <code>EndorsementCredential</code> — which 1EdTech explicitly supports. If Implement is ready to operate its own organisational signing identity, it issues that endorsement. If not, the pilot begins with signed Basel issuance plus clearly governed co-branding, which is a legitimate starting point rather than a compromise.</p>
+    </section>
+
+    <!-- 04 ------------------------------------------------------------ -->
+    <section class="band" id="learner">
+      <div class="band-head">
+        <div class="band-num">04</div>
+        <div>
+          <h2>What the learner actually experiences.</h2>
+          <p class="band-lede">Learners understand LinkedIn links and PDFs; wallets and raw JSON remain unfamiliar. The human-readable page and the certificate are first-class pilot deliverables, not legacy artefacts.</p>
+        </div>
+      </div>
+
+      <div class="chain">
+        <div>
+          <p class="step">01 · Course</p>
+          <h3>Complete the programme</h3>
+          <p>Delivered with Implement, assessed against a published set of criteria.</p>
+        </div>
+        <div>
+          <p class="step">02 · Credential</p>
+          <h3>Receive a claim link</h3>
+          <p>A public credential page, an accessible PDF, and a downloadable signed credential file.</p>
+          <a href="./index.html">See the participant page ↗</a>
+        </div>
+        <div>
+          <p class="step">03 · Verification</p>
+          <h3>Anyone can check it</h3>
+          <p>Verification runs against the issuer's key, not against a Basel web page.</p>
+          <a href="./verify.html">Run the tamper test ↗</a>
+        </div>
+        <div>
+          <p class="step">04 · Reuse</p>
+          <h3>Keep it and use it</h3>
+          <p>One-click LinkedIn addition, CV embed, QR, and wallet export tested against two independent tools.</p>
+          <a href="./dcc-lab.html">External verifier handoff ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 ------------------------------------------------------------ -->
+    <section class="band" id="trust">
+      <div class="band-head">
+        <div class="band-num">05</div>
+        <div>
+          <h2>The trust model, and where this prototype stops.</h2>
+          <p class="band-lede">Every layer below is labelled with what this repository has actually demonstrated and what it has not. The gaps are institutional decisions or procurement tasks — which is why the next step is a decision rather than more code.</p>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="stack-row">
+          <div class="stack-name">Institutional issuer authority<small>Decision · not built</small></div>
+          <p>Who may issue in the university's name. The pilot cannot start without an answer.</p>
+        </div>
+        <div class="stack-row">
+          <div class="stack-name">did:web or HTTPS issuer identity<small>University domain</small></div>
+          <p>A Basel-controlled identifier, resolvable without trusting our application. The prototype demonstrates the shape using <code>did:key</code>.</p>
+        </div>
+        <div class="stack-row">
+          <div class="stack-name">Signing key in managed KMS / HSM<small>Named owner · rotation · incident procedure</small></div>
+          <p>Not built here, deliberately. A demo key in a local directory proves the mechanism and nothing about custody.</p>
+        </div>
+        <div class="stack-row">
+          <div class="stack-name">OpenBadgeCredential<small>Demonstrated</small></div>
+          <p>Achievement, criteria, learning outcomes, assessment, workload, evidence policy, issue date and participant.</p>
+        </div>
+        <div class="stack-row">
+          <div class="stack-name">W3C Verifiable Credentials 2.0 proof<small>Demonstrated</small></div>
+          <p>A real signature over the exact credential bytes. Altering one field breaks verification.</p>
+        </div>
+        <div class="stack-row">
+          <div class="stack-name">Status and revocation<small>Not built</small></div>
+          <p>A privacy-preserving status list supporting revocation, suspension and correction — avoiding per-person designs that reveal who is checking a credential.</p>
+        </div>
+        <div class="stack-row">
+          <div class="stack-name">Human-readable page · signed file · PDF<small>Demonstrated</small></div>
+          <p>Three renderings of one record. The public share page stays separate from the downloadable credential.</p>
+        </div>
+        <div class="stack-row">
+          <div class="stack-name">LinkedIn · wallet · independent verifier<small>Partly demonstrated</small></div>
+          <p>LinkedIn handoff and an external verifier handoff exist. Wallet export against two independent tools is a pilot test, not a prototype feature.</p>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:40px">
+        <h2>Verified is not recognised.</h2>
+        <p>Verification establishes <strong>authorship, integrity, conformance and current status</strong>. It does not establish that the educational claim is substantively true, and it does not create employer acceptance — a verifier still has to decide whether it trusts the issuer for that achievement.</p>
+        <p>This distinction is the single thing most likely to be misunderstood, and it belongs on every learner-facing surface. A credential that is cryptographically perfect and socially unread is still cryptographically perfect.</p>
+      </div>
+    </section>
+
+    <!-- 06 ------------------------------------------------------------ -->
+    <section class="band" id="why-now">
+      <div class="band-head">
+        <div class="band-num">06</div>
+        <div>
+          <h2>Why now — and why bounded.</h2>
+          <p class="band-lede">W3C Verifiable Credentials 2.0 became a Recommendation in May 2025 and Open Badges 3.0 builds on it, with production implementations available. Swiss and European activity is real but fragmented — enough to justify learning by doing, not enough to join a settled ecosystem.</p>
+        </div>
+      </div>
+
+      <div class="rows">
+        <div class="rowhead cols-3"><span>Reference point</span><span>What it demonstrates</span><span>Relevance here</span></div>
+        <div class="row cols-3">
+          <div class="who">ETH Zürich<small>Switzerland</small></div>
+          <div class="what">Badges for short continuing-education courses, with LinkedIn sharing, verification URL and wallet storage — on <strong>Open Badges 2.0</strong>.</div>
+          <div class="why">Operational, but on the previous standard</div>
+        </div>
+        <div class="row cols-3">
+          <div class="who">ZHAW<small>Switzerland</small></div>
+          <div class="what">Institutionalised September 2025: automated PDF <em>plus</em> badge, persistent link and LinkedIn workflow for 1–9 ECTS continuing education.</div>
+          <div class="why">Strongest Swiss institutionalisation — badge version not public</div>
+        </div>
+        <div class="row cols-3">
+          <div class="who">BFH<small>Switzerland</small></div>
+          <div class="what">2025 proof of concept placing a continuing-education certificate in the Swiyu wallet.</div>
+          <div class="why">Swiss trust infrastructure is being tested</div>
+        </div>
+        <div class="row cols-3">
+          <div class="who">University of Oxford<small>United Kingdom</small></div>
+          <div class="what">Operational pilot for <strong>internal professional learning</strong> — wallet, LinkedIn/CV sharing, access retained after leaving.</div>
+          <div class="why">Closest analogue to this proposal</div>
+        </div>
+        <div class="row cols-3">
+          <div class="who">SURF edubadges<small>Netherlands</small></div>
+          <div class="what">National higher-education badge platform tied to a lifelong eduID, with backpack, consent and external authenticity checking.</div>
+          <div class="why">What mature looks like — needs national coordination</div>
+        </div>
+        <div class="row cols-3">
+          <div class="who">ECIU / University of Twente<small>Europe</small></div>
+          <div class="what">E-sealed microcredentials issued through European Digital Credentials for challenge-based learning.</div>
+          <div class="why">The EDC route — related to, not interchangeable with, OB3</div>
+        </div>
+        <div class="row cols-3">
+          <div class="who">MIT Learn / Digital Credentials Consortium<small>Reference architecture</small></div>
+          <div class="what">Signed Open Badges 3.0 samples, an independent verifier and a learner wallet.</div>
+          <div class="why">The interoperability fixture this prototype tests against</div>
+        </div>
+      </div>
+
+      <p class="band-note"><strong>What the evidence does not support.</strong> Switzerland has emerging principles, not one binding national credential architecture — the swissuniversities position is explicitly not final, and there is no mature national portable-learning-record network to join. In Europe, Open Badges 3.0 and European Digital Credentials are <strong>not automatically interoperable</strong>: they use different application profiles, vocabularies and trust mechanisms, so a future EDC representation is a migration rather than a re-render. Open Badges 3.0 should not be described as “the European standard”.</p>
+    </section>
+
+    <!-- 07 ------------------------------------------------------------ -->
+    <section class="band" id="boundaries">
+      <div class="band-head">
+        <div class="band-num">07</div>
+        <div>
+          <h2>What is in the pilot, and what is deliberately not.</h2>
+          <p class="band-lede">The exclusions are as important as the inclusions. Most of them protect against claiming recognition the pilot cannot deliver.</p>
+        </div>
+      </div>
+
+      <div class="inout">
+        <div class="in">
+          <h3>In scope</h3>
+          <ul>
+            <li>One cohort, one non-credit achievement</li>
+            <li>Basel-controlled issuer identity and signing key</li>
+            <li>Open Badges 3.0 credential over W3C VC 2.0</li>
+            <li>Status list for revocation and correction</li>
+            <li>Public credential page, PDF and downloadable signed file</li>
+            <li>LinkedIn handoff and wallet export</li>
+            <li>Independent verification testing</li>
+            <li>The existing PDF process, retained as the control arm</li>
+          </ul>
+        </div>
+        <div class="out">
+          <h3>Out of scope</h3>
+          <ul>
+            <li>ECTS, degree credit or qualification status</li>
+            <li>Automatic HR or hiring decisions</li>
+            <li>Blockchain — optional infrastructure, not required</li>
+            <li>Selective disclosure</li>
+            <li>Any dependency on Swiss e-ID before it is ready</li>
+            <li>Multi-university recognition claims</li>
+            <li>Institution-wide rollout</li>
+            <li>Dual cryptographic issuance</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="band-note">The pilot proves <strong>portable verification and governance</strong>. It does not announce a credential ecosystem, and it makes no recognition claim that a Swiss framework does not yet support.</p>
+    </section>
+
+    <!-- 08 ------------------------------------------------------------ -->
+    <section class="band" id="measures">
+      <div class="band-head">
+        <div class="band-num">08</div>
+        <div>
+          <h2>What success looks like — and what would stop it.</h2>
+          <p class="band-lede">One numeric target, because one is all the evidence supports. Everything else is instrumented and compared against the existing PDF process rather than scored against an invented threshold.</p>
+        </div>
+      </div>
+
+      <div class="rows">
+        <div class="rowhead cols-2"><span>Measure</span><span>How it is judged</span></div>
+        <div class="row cols-2">
+          <div class="who">Independent verifiability</div>
+          <div class="what"><strong>100% of issued credentials</strong> pass an independent Open Badges 3.0 verifier. The only stated numeric target.</div>
+        </div>
+        <div class="row cols-2">
+          <div class="who">Failure cases</div>
+          <div class="what">Altered, revoked and expired credentials behave correctly; key rotation leaves earlier credentials verifiable; a participant-name correction completes without breaking verification.</div>
+        </div>
+        <div class="row cols-2">
+          <div class="who">Portability</div>
+          <div class="what">The credential verifies outside the issuing platform, in at least two independent tools.</div>
+        </div>
+        <div class="row cols-2">
+          <div class="who">Learner behaviour</div>
+          <div class="what">Claim, download, LinkedIn-sharing and wallet-export rates — compared against PDF-only behaviour in the same cohort.</div>
+        </div>
+        <div class="row cols-2">
+          <div class="who">Learner understanding</div>
+          <div class="what">Asked directly: do learners understand <em>verified</em> versus <em>recognised</em>? If not, that is a communication defect regardless of the technical result.</div>
+        </div>
+        <div class="row cols-2">
+          <div class="who">Operational effort</div>
+          <div class="what">Issuance and correction time, support requests, and administrative effort against the current PDF process. Zero unresolved identity mismatches or key/status incidents.</div>
+        </div>
+        <div class="row cols-2">
+          <div class="who">Employer comprehension</div>
+          <div class="what">Interviews. Measured as comprehension, not acceptance — acceptance is a policy and reputation decision, not something a pilot can produce.</div>
+        </div>
+      </div>
+
+      <p class="band-note"><strong>Go / no-go.</strong> Continue only if all five hold: technical interoperability works; learners understand the credential; participant value is visible; operational effort is reasonable; governance is accepted. A clear “not yet, and here is exactly why” is a successful pilot outcome.</p>
+    </section>
+
+    <!-- 09 ------------------------------------------------------------ -->
+    <section class="band" id="plan">
+      <div class="band-head">
+        <div class="band-num">09</div>
+        <div>
+          <h2>The first 90 days.</h2>
+          <p class="band-lede">Governance first, because the binding constraints are organisational. The prototype in this repository is the test harness for the middle phase — not the production system.</p>
+        </div>
+      </div>
+
+      <div class="plan">
+        <article>
+          <p class="days">DAYS 1–30</p>
+          <h3>Governance and test definition</h3>
+          <ul>
+            <li>Nominate academic owner, credential registrar, privacy/security owner and Implement counterpart</li>
+            <li>Approve the achievement: outcomes, assessment, workload, evidence and explicit non-credit status</li>
+            <li>Choose Model C and draft the issuer / endorser wording</li>
+            <li>Write the procurement test: OB3 export, independent verification, status, key-control documentation, GDPR/FADP terms, exit portability</li>
+          </ul>
+          <p class="exit"><b>Exit:</b> roles named, achievement approved, model chosen, procurement test written.</p>
+        </article>
+        <article>
+          <p class="days">DAYS 31–60</p>
+          <h3>Interoperability build</h3>
+          <ul>
+            <li>Compare Accredible, Open Badge Factory and one lightweight open-source route</li>
+            <li>Generate test credentials from this prototype</li>
+            <li>Validate with the 1EdTech verifier, VerifierPlus and two wallet/export pathways</li>
+            <li>Test key rotation, revoked, altered and expired credentials, and a participant-name correction</li>
+          </ul>
+          <p class="exit"><b>Exit:</b> one route selected with evidence; all five failure cases pass.</p>
+        </article>
+        <article>
+          <p class="days">DAYS 61–90</p>
+          <h3>Live cohort</h3>
+          <ul>
+            <li>Enrol one Change Management cohort</li>
+            <li>Issue both the current-style certificate and the OB3 credential</li>
+            <li>Instrument claim, sharing, export, verification and support metrics</li>
+            <li>Interview learners and employers for comprehension</li>
+            <li>Produce the go/no-go dossier</li>
+          </ul>
+          <p class="exit"><b>Exit:</b> dossier delivered, go/no-go decision taken.</p>
+        </article>
+      </div>
+
+      <p class="band-note">The 90 days are a sequence, not a calendar promise. Legal review and institutional procurement can each exceed 30 days on their own, and the cohort phase cannot start until a cohort actually runs. Days 1–30 and 31–60 can overlap.</p>
+    </section>
+
+    <!-- decisions ----------------------------------------------------- -->
+    <section class="band" id="decisions">
+      <div class="band-head">
+        <div class="band-num">10</div>
+        <div>
+          <h2>What has to be decided before anything is issued.</h2>
+          <p class="band-lede">None of these is an engineering task. All of them require institutional review, and the pilot cannot begin without them.</p>
+        </div>
+      </div>
+
+      <div class="rows">
+        <div class="row cols-2"><div class="who">Issuer authority</div><div class="what">Who may issue in the university's name?</div></div>
+        <div class="row cols-2"><div class="who">Key ownership</div><div class="what">Can Basel legally and operationally control the signing identity and keys?</div></div>
+        <div class="row cols-2"><div class="who">Participant data</div><div class="what">Controller and processor roles, Swiss FADP assessment, data minimisation, retention and deletion, hosting jurisdiction.</div></div>
+        <div class="row cols-2"><div class="who">Revocation and correction</div><div class="what">Who may act, and what appeal process applies?</div></div>
+        <div class="row cols-2"><div class="who">Hosting</div><div class="what">Where do credentials, public pages and analytics live, durably?</div></div>
+        <div class="row cols-2"><div class="who">Support ownership</div><div class="what">Who answers a learner whose name is wrong?</div></div>
+        <div class="row cols-2"><div class="who">Academic framing</div><div class="what">Non-credit professional learning, or a formal microcredential? This changes everything downstream.</div></div>
+        <div class="row cols-2"><div class="who">Implement's role</div><div class="what">Will Implement operate an endorsement identity, or provide co-branding only?</div></div>
+        <div class="row cols-2"><div class="who">Exit portability</div><div class="what">Can credentials be exported with original signatures after a contract ends?</div></div>
+      </div>
+
+      <div class="doclinks">
+        <a class="doclink primary" href="./docs/pilot/decision-brief.md">Decision brief — 4 min ↗</a>
+        <a class="doclink" href="./docs/pilot/pilot-charter.md">Pilot charter ↗</a>
+        <a class="doclink" href="./docs/pilot/governance-model.md">Governance model ↗</a>
+        <a class="doclink" href="./docs/pilot/technical-architecture.md">Technical architecture ↗</a>
+        <a class="doclink" href="./docs/pilot/90-day-plan.md">90-day plan ↗</a>
+        <a class="doclink" href="./docs/research/">Research ↗</a>
+      </div>
+    </section>
+
+    <div class="rail" aria-label="Project status">
+      <pre>Digital Credentials Pilot
+
+Core UX      [██████] ✓
+Open Badges  [██████] ✓
+Verification [██████] ✓
+DCC path     [██████] ✓
+Issuer flow  [██████] ✓
+Product case [██████] ✓
+Research     [██████] ✓
+Pilot pack   [██████] ✓</pre>
+    </div>
+
+    <footer class="site-foot">
+      <p><strong>Status of this document.</strong> A proposal prepared for discussion. University of Basel and Implement Consulting Group have not agreed to, endorsed or adopted any part of it, and no credential in this prototype is institutionally issued or signed — everything signed in this repository is signed by a prototype demo issuer. Reference institutions are cited as public, documented programmes, not as endorsements.</p>
+      <p style="margin-top:14px">Evidence synthesised from a commissioned research report, archived with the project. Traceability from each research conclusion to each decision on this page is recorded in <code>docs/research/source-report.md</code>.</p>
+    </footer>
+  </main>
+</body>
+</html>

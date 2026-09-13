@@ -3,25 +3,54 @@
 > The website makes the certificate desirable.
 > Open Badges makes it portable, verifiable and interoperable.
 
-## What is this?
+## What this repo is
 
-A working prototype that turns a training certificate into a **portable, machine-readable, verifiable learning record**.
+A working **pilot and reference implementation** exploring how University of Basel could issue portable digital learning credentials **with an external learning partner** — using Open Badges 3.0 over W3C Verifiable Credentials 2.0.
 
-The certificate page is the part people see. It is one *view* of the credential — not the credential itself. Underneath it there is an Open Badges 3.0 record, a cryptographic proof, and a participant who can keep and reuse the credential somewhere else entirely.
+It is three things in one place:
 
-The first fixture is a digital representation of an existing **Change Management Training** certificate from Implement Learning Institute (26 August 2025), used throughout as demo data.
+1. **A prototype** — a participant credential experience, a standards mapping, real cryptographic proof, and an organiser issuance workflow.
+2. **Research** — a synthesis of the Swiss and European credential landscape, in [`docs/research/`](docs/research/).
+3. **A pilot proposal** — a bounded University of Basel + Implement Consulting Group pilot, in [`docs/pilot/`](docs/pilot/).
 
-## Why does it matter?
+**Start here:** [`pilot.html`](pilot.html) for the proposal, or [`docs/pilot/decision-brief.md`](docs/pilot/decision-brief.md) for a four-minute read.
 
-A good training usually ends with a weak artefact: a PDF in an inbox. The achievement, the competencies, the criteria and the issuer exist as pixels rather than as reusable learning data, and verifying it means emailing someone.
+The demo fixture throughout is a digital representation of an existing **Change Management Training** certificate from Implement Learning Institute (26 August 2025).
 
-The strategic question is not only how to issue better certificates:
+## What has been proven
 
-> It is whether we want a standards-based way to represent learning across internal and external providers.
+| | Where |
+| --- | --- |
+| Premium participant credential experience | [`index.html`](index.html) |
+| Open Badges 3.0 mapping of a real training record | [`standards-lab.html`](standards-lab.html) |
+| Cryptographic proof, with a tamper test | [`verify.html`](verify.html) |
+| DCC-compatible trust shape — `did:key`, `DataIntegrityProof`, `eddsa-rdfc-2022` | [`dcc-lab.html`](dcc-lab.html) |
+| Batch organiser issuance workflow | [`issuer.html`](issuer.html) |
+| External-provider partnership model | [`docs/pilot/governance-model.md`](docs/pilot/governance-model.md) |
 
-That is the difference between a nicer certificate website and infrastructure an institution can issue, recognise and combine credentials with.
+## What is not production ready
 
-## Who is it for?
+None of these is a coding gap that more prototyping would close:
+
+- **Institutional issuer authority** — who may issue in the university's name
+- **Key management** — custody, named owner, rotation, incident procedure
+- **Status and revocation** — no status list exists here
+- **Participant identity governance** — identity matching, data minimisation, retention
+- **Production hosting** — `credentialUrl` is a placeholder; nothing is durably hosted
+- **Privacy and legal approval** — Swiss FADP assessment, processor agreements
+- **Live delivery** — the organiser flow produces records and sends nothing
+
+Everything signed in this repository is signed by a **prototype demo issuer**. Nothing here is issued by, signed by or endorsed by University of Basel, Implement Consulting Group, MIT or the Digital Credentials Consortium.
+
+**Verified is not recognised.** Verification proves authorship, integrity, conformance and current status. It does not prove the educational claim is true, and it does not create employer acceptance.
+
+## Next move
+
+**A decision on a bounded live pilot** — not more prototype code.
+
+The remaining blockers are organisational: issuer authority, key custody, participant-data governance, revocation ownership, hosting and support. See [`docs/pilot/decision-brief.md`](docs/pilot/decision-brief.md#what-must-be-decided).
+
+## Who it is for
 
 | | What they get |
 | --- | --- |
@@ -29,31 +58,19 @@ That is the difference between a nicer certificate website and infrastructure an
 | **Organisers** | Define the achievement once, issue to a whole cohort, standardised metadata, far less manual PDF work |
 | **Institutions** | Reusable learning infrastructure: one model for internal and partner-delivered learning, interoperability instead of lock-in |
 
-## Why Open Badges?
+## Why Open Badges 3.0
 
-Open Badges 3.0 is an **open 1EdTech standard**, built on **W3C Verifiable Credentials**. It is education-specific — achievement, criteria, competencies, evidence and recipient are first-class — and it is what higher education is converging on.
+An **open 1EdTech standard** built on **W3C Verifiable Credentials 2.0**, which became a W3C Recommendation in May 2025. It is education-specific — achievement, criteria, competencies, evidence and recipient are first-class — and it is lightweight enough for professional learning while staying compatible with the broader VC direction.
 
-Using it means our site is not the source of truth. Someone can check a credential without trusting the page that displays it.
+Using it means this site is not the source of truth: someone can check a credential without trusting the page that displays it.
 
-MIT and the Digital Credentials Consortium appear throughout this repo as **reference implementations and ecosystem leaders** — not as owners of a competing standard. Testing against an independent implementation is a much stronger interoperability check than our own verifier agreeing with our own issuer.
+MIT and the Digital Credentials Consortium appear throughout as **reference implementations and ecosystem leaders** — not as owners of a competing standard.
 
-## Read the case
-
-- `index.html` — the short version: credential → why it matters → the standard → institutional opportunity → pilot
-- `pitch.html` — the long-form product story and higher-ed reference cases
-- `docs/product-case.md` — the written case, including the University of Basel opportunity, the Implement pilot and the issuer / endorsement models
-
-## Trust boundary
-
-The demo credentials in this repository are genuinely signed — by a **prototype demo issuer**. Nothing here is issued by, signed by, or endorsed by Implement Learning Institute, University of Basel, MIT or the Digital Credentials Consortium, and the pilot scenarios described are **proposals that no organisation has agreed to**.
-
-Moving from a demo issuer to an institutional one is an organisational decision — issuer identity, key custody, issuance governance and revocation — not a remaining coding task.
+One caveat the research is firm about: Open Badges 3.0 and **European Digital Credentials are not automatically interoperable**. A future EDC representation is a migration, not a re-render.
 
 ## Pitch page
 
-Open `pitch.html` for the long-form product story: what the product is, why Open Badges 3.0 matters beyond a nice HTML certificate, participant and organiser UX, higher-education reference cases, and the proposed path for improving our certificates.
-
-The pitch uses reference cases from MIT / the Digital Credentials Consortium, ETH Zürich, Oxford, SUNY, Deakin University and the European Commission / Europass.
+Open [`pitch.html`](pitch.html) for the long-form product story: what the product is, why Open Badges 3.0 matters beyond a nice HTML certificate, participant and organiser UX, higher-education reference cases, and the proposed path for improving our certificates.
 
 ## Current build
 
@@ -125,6 +142,7 @@ Then open:
 - `http://localhost:8000/verify.html` — Bite 3 cryptographic verification + tamper test
 - `http://localhost:8000/dcc-lab.html` — Bite 3.1 DCC compatibility / external-verifier handoff
 - `http://localhost:8000/issuer.html` — Bite 4 organiser issuance workflow
+- `http://localhost:8000/pilot.html` — Bite 5 pilot proposal
 
 ## Project map
 
@@ -132,6 +150,7 @@ Then open:
 - `pitch.html` — visual product pitch
 - `standards-lab.html` — Bite 2 standards mapping
 - `verify.html` / `verify.js` — Bite 3 cryptographic verification surface
+- `pilot.html` / `pilot.css` — Bite 5 pilot proposal surface
 - `dcc-lab.html` — Bite 3.1 DCC compatibility surface
 - `issuer.html` / `issuer.css` / `issuer.js` — Bite 4 organiser workspace
 - `issuance.js` — Bite 4 issuance model: fixtures, CSV parsing, OB 3.0 mapping, deterministic issuance
@@ -149,6 +168,9 @@ Then open:
 - `docs/bite-3-1.md` — DCC compatibility and trust-boundary notes
 - `docs/bite-4.md` — organiser workflow, data model and what is simulated
 - `docs/product-case.md` — product thesis, participant/organiser/institutional value, Basel opportunity, Implement pilot, issuer models
+- `docs/pilot/` — pilot charter, governance model, technical architecture, success metrics, risks, 90-day plan, decision brief
+- `docs/research/` — Swiss and European landscape synthesis, plus the archived source report
+- `docs/public-extraction-plan.md` — how a clean generic public repo would be split out later
 - `docs/concept.md` — product thesis and scope
 - `docs/standards.md` — Open Badges 3.0 + MIT/DCC path
 - `docs/pitch-unibas.md` — University of Basel conversation brief
