@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#eee8dc" />
+  <title>Verify credential — Digital Credentials Demo</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .verify-shell{max-width:980px;margin:0 auto;padding:7rem 1.5rem 5rem}.verify-kicker{font:600 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase}.verify-title{max-width:780px;font-size:clamp(2.6rem,7vw,6rem);line-height:.92;letter-spacing:-.055em;margin:1rem 0 1.5rem}.verify-lede{max-width:690px;font-size:1.15rem;line-height:1.6}.verify-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:1px;background:#26231f;margin-top:4rem;border:1px solid #26231f}.verify-panel{background:#eee8dc;padding:2rem}.verify-panel h2{font-size:1.2rem;margin:0 0 1.5rem}.signal{display:flex;gap:1rem;align-items:flex-start;border-top:1px solid rgba(38,35,31,.28);padding:1.15rem 0}.signal:first-of-type{border-top:0}.dot{width:.72rem;height:.72rem;border-radius:50%;margin-top:.35rem;background:#8c8172;flex:0 0 auto}.signal.good .dot{background:#2f684c}.signal.bad .dot{background:#9e3b2f}.signal strong,.signal span{display:block}.signal span{font-size:.91rem;line-height:1.45;opacity:.74;margin-top:.18rem}.mono{font:500 .75rem/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all;background:rgba(255,255,255,.28);padding:1rem;margin-top:1rem;max-height:15rem;overflow:auto}.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}.verify-btn{appearance:none;border:1px solid #26231f;background:transparent;padding:.75rem 1rem;font:600 .78rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.04em;cursor:pointer}.verify-btn.primary{background:#26231f;color:#eee8dc}.trust-note{margin-top:2rem;padding-top:1.3rem;border-top:1px solid rgba(38,35,31,.28);font-size:.86rem;line-height:1.55}.back{display:inline-block;margin-top:3rem;color:inherit}@media(max-width:760px){.verify-grid{grid-template-columns:1fr}.verify-shell{padding-top:5rem}}
+  </style>
+</head>
+<body>
+  <main class="verify-shell">
+    <div class="verify-kicker">Bite 3 / cryptographic proof</div>
+    <h1 class="verify-title">Can this credential prove it has not been changed?</h1>
+    <p class="verify-lede">This page verifies the signed Open Badges 3.0 demo credential directly in your browser using Web Crypto. No server decides the result.</p>
+
+    <section class="verify-grid" aria-live="polite">
+      <div class="verify-panel">
+        <h2>Verification</h2>
+        <div class="signal" id="signatureSignal"><i class="dot"></i><div><strong>Checking signature…</strong><span>RS256 signature over the exact JWT header and payload.</span></div></div>
+        <div class="signal" id="structureSignal"><i class="dot"></i><div><strong>Checking credential structure…</strong><span>OpenBadgeCredential type, issuer, subject and timing invariants.</span></div></div>
+        <div class="signal" id="issuerSignal"><i class="dot"></i><div><strong>Checking demo issuer key…</strong><span>The public key in the credential must match the committed demo issuer profile.</span></div></div>
+        <div class="actions">
+          <button class="verify-btn primary" id="verifyButton">Verify original</button>
+          <button class="verify-btn" id="tamperButton">Run tamper test</button>
+        </div>
+        <div class="trust-note"><strong>Important:</strong> “Signature valid” means this demo key signed these exact bytes. It does <em>not</em> mean Implement Learning Institute or University of Basel issued or endorsed this credential. Institutional trust is a separate layer.</div>
+      </div>
+
+      <aside class="verify-panel">
+        <h2>Signed claim</h2>
+        <div id="summary">Loading credential…</div>
+        <div class="mono" id="credentialId"></div>
+      </aside>
+    </section>
+
+    <section class="verify-panel" style="margin-top:1px;border:1px solid #26231f">
+      <h2>What the tamper test proves</h2>
+      <p class="verify-lede" style="font-size:1rem">The test changes one signed field in memory without changing the signature. Verification should immediately fail. That is the difference between a page that merely displays a certificate and a signed credential whose integrity can be checked independently.</p>
+    </section>
+
+    <a class="back" href="./standards-lab.html">← Back to standards lab</a>
+  </main>
+  <script type="module" src="./verify.js"></script>
+</body>
+</html>
