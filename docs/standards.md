@@ -2,7 +2,7 @@
 
 ## Target: Open Badges 3.0
 
-1EdTech Open Badges 3.0 is the target credential format for the next implementation bite. Open Badges packages an achievement with metadata about the earner, issuer and criteria/evidence, and the 3.0 specification aligns with the W3C Verifiable Credentials model.
+1EdTech Open Badges 3.0 is the target credential format for the implementation. Open Badges packages an achievement with metadata about the earner, issuer and criteria/evidence, and version 3.0 aligns with the W3C Verifiable Credentials model.
 
 Primary references:
 
@@ -17,12 +17,32 @@ Reference:
 
 - https://github.com/digitalcredentials/mit-learn-obv3-template
 
-## Deliberate boundary in Bite 1
+## Bite 2 implementation
 
-`credential.json` is **not** claimed to be a conformant Open Badge. It is a small product-domain model that preserves the facts we will need to map into an Open Badge credential in Bite 2.
+`credential.json` remains the small product-domain record used by the public participant experience.
 
-This boundary matters: a nice public page does not make a credential cryptographically verifiable. Signing, issuer identity, status/revocation and independent verification remain future work.
+`obv3/credential-draft.json` is the first standards mapping. It expresses the same achievement as a W3C Verifiable Credential / OpenBadgeCredential and includes the Open Badges 3.0 context, issuer profile, validity date, AchievementSubject, Achievement, criteria and tags.
 
-## Bite 2 acceptance test
+`standards-lab.html` makes this mapping visible for non-technical stakeholders.
 
-Map the domain record to an `OpenBadgeCredential` and test the result against the DCC/MIT examples and a compatible verifier. Do not invent a proprietary signing format.
+## Trust boundary
+
+The Bite 2 JSON is deliberately **unsigned** and is not presented as a real credential newly issued by Implement Learning Institute.
+
+The issuer identifier uses an `example.invalid` placeholder. We do not create a fake DID, proof block, signing key, status list or revocation mechanism just to make the demo look complete.
+
+This distinction is central:
+
+- a structurally mapped credential proves the data model and interoperability direction;
+- a signed credential proves issuer authority and integrity.
+
+Bite 3 will add the second part only when there is a legitimate issuer identity and issuer-controlled key material.
+
+## Bite 2 acceptance status
+
+- domain record mapped to an Open Badges 3.0-shaped credential: complete
+- aligned against the MIT/DCC course-certificate field pattern: complete
+- mapping and trust boundary documented visually: complete
+- independent cryptographic verification: deferred to Bite 3 because a legitimate issuer proof does not yet exist
+
+Do not invent a proprietary signing format.
