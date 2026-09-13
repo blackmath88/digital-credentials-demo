@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f1ede4" />
+  <title>Digital Credentials — Product Pitch</title>
+  <meta name="description" content="A product pitch for turning training certificates into portable, verifiable digital credentials." />
+  <style>
+    :root {
+      --paper:#f1ede4; --ink:#171717; --muted:#68645d; --line:#cfc8bc;
+      --white:#fffdf8; --accent:#1f5c49; --accent-soft:#dfe9e3; --dark:#111;
+      --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+    a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+    .wrap{width:min(calc(100% - 36px),var(--max));margin:auto}
+    header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    nav{height:62px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    .navlinks{display:flex;gap:20px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:var(--muted)}
+    section{padding:92px 0;border-bottom:1px solid var(--line)}
+    .eyebrow{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(58px,9vw,126px);line-height:.88;letter-spacing:-.055em;max-width:1050px;margin-bottom:34px}
+    h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.035em;max-width:900px;margin-bottom:30px}
+    h3{font-size:20px;line-height:1.15;margin-bottom:12px}
+    .lede{font-size:clamp(21px,2.5vw,31px);line-height:1.25;max-width:880px;color:#292824}
+    .hero{padding-top:120px;min-height:86vh;display:flex;align-items:flex-end}
+    .hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:60px;align-items:end;width:100%}
+    .hero-note{font-size:14px;color:var(--muted);border-left:1px solid var(--ink);padding-left:18px;margin-bottom:8px}
+    .statement{font-family:Georgia,"Times New Roman",serif;font-size:clamp(32px,4.5vw,62px);line-height:1.06;max-width:1000px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--white);border:1px solid var(--line);padding:28px;min-height:230px}
+    .card small{display:block;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px}
+    .card p{color:#45423d}
+    .compare{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:var(--white)}
+    .compare>div{padding:32px}.compare>div+div{border-left:1px solid var(--line)}
+    .compare ul{padding-left:18px;margin:24px 0 0}.compare li{margin:9px 0}
+    .strong{background:var(--dark)!important;color:#fff}.strong p,.strong li{color:#ddd}
+    .flow{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+    .step{padding:24px 18px 30px 0;min-height:150px}.step+.step{padding-left:18px;border-left:1px solid var(--line)}
+    .num{font-family:Georgia,serif;font-size:42px;line-height:1;color:var(--muted);margin-bottom:18px}
+    .prototype{background:#e5e0d6;border:1px solid #bdb5a8;padding:36px;display:grid;grid-template-columns:2fr 1fr;gap:40px}
+    .certificate{background:#fffdfa;border:1px solid #b8b0a4;padding:58px;min-height:560px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 18px 50px rgba(30,20,5,.08)}
+    .certificate .mark{font-size:11px;letter-spacing:.14em;text-transform:uppercase}.certificate .award{font-family:Georgia,serif;font-size:52px;line-height:1}.certificate .name{font-size:24px}.verified{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);border-top:1px solid #ddd;padding-top:16px}
+    .actions{display:grid;gap:10px;align-content:start}.action{border:1px solid #9f988d;background:#f8f5ee;padding:15px 16px;font-size:14px}.action.primary{background:#121212;color:#fff;border-color:#121212}
+    .refgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.ref{position:relative;background:var(--white);border:1px solid var(--line);padding:30px;min-height:240px;display:flex;flex-direction:column}.ref .brand{font-family:Georgia,serif;font-size:34px;margin-bottom:auto}.ref .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}.ref a{font-size:13px;margin-top:20px}
+    .big-number{font-family:Georgia,serif;font-size:68px;line-height:.9;margin-bottom:14px}
+    .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}.roadmap .card{border:0;border-right:1px solid var(--line)}.roadmap .card:last-child{border-right:0}
+    .footer{padding:60px 0 90px;font-size:13px;color:var(--muted)}
+    .pitchline{font-family:Georgia,serif;font-size:clamp(36px,6vw,86px);line-height:.98;letter-spacing:-.04em;max-width:1050px}
+    .accent{color:var(--accent)}
+    @media(max-width:850px){
+      .hero-grid,.two,.prototype{grid-template-columns:1fr}.three,.refgrid{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.step+.step{border-left:0;border-top:1px solid var(--line);padding-left:0}.compare{grid-template-columns:1fr}.compare>div+div{border-left:0;border-top:1px solid var(--line)}.roadmap{grid-template-columns:1fr}.roadmap .card{border-right:0;border-bottom:1px solid var(--line)}.navlinks{display:none}.certificate{padding:34px;min-height:480px}.certificate .award{font-size:40px}
+    }
+    @media print{header{display:none}section{break-inside:avoid;padding:34px 0}.hero{min-height:0}.wrap{width:100%}body{background:#fff}}
+  </style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <strong>DIGITAL CREDENTIALS / PITCH</strong>
+    <div class="navlinks">
+      <a href="#idea">Idea</a><a href="#why">Why</a><a href="#experience">Experience</a><a href="#proof">Higher ed</a><a href="#path">Path</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">A proposal for modern learning recognition</div>
+        <h1>Make the certificate useful after the course.</h1>
+        <p class="lede">Turn a training certificate from a PDF in an inbox into a durable digital credential people can understand, keep, share and — with Open Badges 3.0 — verify independently.</p>
+      </div>
+      <div class="hero-note">Simple to issue.<br>Valuable to receive.<br>Built on an open standard.</div>
+    </div>
+  </section>
+
+  <section id="idea">
+    <div class="wrap">
+      <div class="eyebrow">The product pitch</div>
+      <p class="pitchline">The website makes the certificate <span class="accent">desirable.</span> Open Badges makes it <span class="accent">portable, verifiable and interoperable.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">The current experience</div>
+      <h2>A good training often ends with a weak artefact.</h2>
+      <div class="three">
+        <article class="card"><small>01 / Today</small><h3>PDF by email</h3><p>A certificate is generated, attached to an email and eventually disappears into a downloads folder.</p></article>
+        <article class="card"><small>02 / Participant</small><h3>Hard to use</h3><p>Sharing it on LinkedIn, a CV or a personal site requires manual work. Verification usually means contacting the issuer.</p></article>
+        <article class="card"><small>03 / Institution</small><h3>Data is trapped</h3><p>The achievement, competencies, criteria and issuer information exist mostly as pixels and text rather than reusable learning data.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="eyebrow">Why Open Badges 3.0</div>
+      <h2>More than a nice HTML certificate.</h2>
+      <div class="compare">
+        <div>
+          <small>Nice HTML certificate</small>
+          <h3>A webpage about an achievement</h3>
+          <ul><li>Beautiful and human-readable</li><li>Shareable link</li><li>Printable and easy to brand</li><li>Trust depends mainly on the site displaying it</li></ul>
+        </div>
+        <div class="strong">
+          <small>Open Badges 3.0 credential</small>
+          <h3>A portable record of an achievement</h3>
+          <ul><li>Structured, machine-readable achievement data</li><li>Issuer, recipient, criteria, skills and evidence can travel with it</li><li>Designed for independent verification</li><li>Can be displayed by different wallets, sites and systems</li><li>Supports stackable learning pathways and interoperability</li></ul>
+        </div>
+      </div>
+      <p class="lede" style="margin-top:36px">We are not building prettier PDFs. We are giving learning achievements a durable digital identity.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="eyebrow">Participant experience</div>
+      <h2>The credential should feel like an object worth keeping.</h2>
+      <div class="prototype">
+        <div class="certificate">
+          <div class="mark">Digital credential / example</div>
+          <div>
+            <div class="award">Change Management Training</div>
+            <p class="name">Achim Imboden</p>
+            <p>Implement Learning Institute<br>Zürich · 26 August 2025 · 8 hours</p>
+          </div>
+          <div class="verified">● Credential record available</div>
+        </div>
+        <div class="actions">
+          <div class="action primary">Add to LinkedIn</div>
+          <div class="action">Download certificate</div>
+          <div class="action">Share credential</div>
+          <div class="action">Copy CV / website embed</div>
+          <div class="action">Show QR</div>
+          <div class="action">Credential details</div>
+        </div>
+      </div>
+      <p style="max-width:780px;margin-top:28px;color:var(--muted)">The participant never needs to understand JSON-LD, digital signatures, wallets or DID infrastructure. They see one clear page, one credential, and useful actions.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Organiser experience</div>
+      <h2>Efficient for organisers. Premium for recipients.</h2>
+      <div class="flow">
+        <div class="step"><div class="num">1</div><h3>Create programme</h3><p>Title, description, date, hours, skills, issuer, branding and signatories.</p></div>
+        <div class="step"><div class="num">2</div><h3>Add participants</h3><p>Manual entry, CSV upload or later an LMS/HR integration.</p></div>
+        <div class="step"><div class="num">3</div><h3>Preview</h3><p>See the participant page, printable certificate and share experience before issuing.</p></div>
+        <div class="step"><div class="num">4</div><h3>Issue</h3><p>Generate the participant records, public pages, PDFs, QR codes and credential data in one step.</p></div>
+        <div class="step"><div class="num">5</div><h3>Manage</h3><p>Delivery status, reissue and revocation without becoming a full LMS.</p></div>
+      </div>
+      <p class="lede" style="margin-top:38px">Issue 20 or 200 professional credentials with almost the same effort as sending a participant list.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two">
+      <div>
+        <div class="eyebrow">For University of Basel</div>
+        <h2>Digital learning infrastructure, not another LMS.</h2>
+      </div>
+      <div>
+        <p class="lede">A lightweight layer for recognising internal learning and professional development.</p>
+        <p>Potential use cases include Leadership & Development, AI capability programmes, M365 learning, internal academies, professional development and future microcredentials.</p>
+        <p>The value is not only the certificate page. The institution gains structured learning records that can later connect to other systems and pathways.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two">
+      <div>
+        <div class="eyebrow">For training partners</div>
+        <h2>Make the value of the training continue after the training day.</h2>
+      </div>
+      <div>
+        <p class="lede">Instead of emailing a PDF, give participants a branded artefact they will actually use.</p>
+        <p>The credential can carry the issuer, learning outcomes, competencies, hours and evidence while giving the participant one-click ways to share it on LinkedIn, a CV or a personal website.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="wrap">
+      <div class="eyebrow">Higher-education reference cases</div>
+      <h2>This direction is already visible in leading institutions.</h2>
+      <div class="refgrid">
+        <article class="ref"><div class="tag">Standards leadership</div><div class="brand">MIT / Digital Credentials Consortium</div><p>A university-led effort focused on portable, privacy-enhanced and verifiable academic credentials, with open-source tooling and standards work.</p><a href="https://dcconsortium.org/" target="_blank" rel="noreferrer">Digital Credentials Consortium ↗</a><a href="https://support.learn.mit.edu/hc/en-us/articles/45262917914267-What-is-the-Digital-Credentials-Consortium-DCC-and-Open-Badges-3-0" target="_blank" rel="noreferrer">MIT on DCC + Open Badges 3.0 ↗</a></article>
+        <article class="ref"><div class="tag">Swiss higher education</div><div class="brand">ETH Zürich</div><p>ETH uses digital badges in continuing education and microcredentials, with issuer, course, learning hours, learning objectives and assessment information designed to be shared and verified.</p><a href="https://sce.ethz.ch/en/providing-continuing-education/planning-a-short-format/digital-badges.html" target="_blank" rel="noreferrer">ETH digital badges ↗</a></article>
+        <article class="ref"><div class="tag">Learner experience</div><div class="brand">University of Oxford</div><p>Oxford has piloted digital certificates and badges with secure verification, a personal digital wallet and sharing to LinkedIn, email and CVs.</p><a href="https://www.ox.ac.uk/staff/oxford-digital-credential" target="_blank" rel="noreferrer">Oxford digital credentials ↗</a></article>
+        <article class="ref"><div class="tag">European interoperability</div><div class="brand">European Commission / Europass</div><p>European Digital Credentials for Learning provide infrastructure to create, issue, store, share and verify digital learning credentials across the European ecosystem.</p><a href="https://europass.europa.eu/en/european-digital-credentials" target="_blank" rel="noreferrer">European Digital Credentials ↗</a><a href="https://education.ec.europa.eu/education-levels/higher-education/micro-credentials" target="_blank" rel="noreferrer">European approach to microcredentials ↗</a></article>
+        <article class="ref"><div class="tag">Scale + governance</div><div class="brand">SUNY</div><p>A system-wide microcredential programme built around quality, faculty governance, portability, stackability and pathways to further credentials.</p><a href="https://www.suny.edu/microcredentials/build-a-program/" target="_blank" rel="noreferrer">SUNY — building a quality programme ↗</a></article>
+        <article class="ref"><div class="tag">Employability</div><div class="brand">Deakin University</div><p>Professional Practice credentials position independently verified skills as employer-facing proof and, in some cases, a pathway into postgraduate study.</p><a href="https://credentials.deakin.edu.au/" target="_blank" rel="noreferrer">Deakin Professional Practice credentials ↗</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">What changes for our certificates?</div>
+      <h2>Keep the institutional weight. Add digital usefulness.</h2>
+      <div class="three">
+        <article class="card"><small>01 / Preserve</small><h3>The certificate remains beautiful</h3><p>Typography, signatures, institutional identity and a printable A4 artefact still matter. The physical certificate becomes one rendering of the credential.</p></article>
+        <article class="card"><small>02 / Structure</small><h3>Capture what the learning means</h3><p>Course title, duration, competencies, criteria, skills, issuer, date and evidence become structured data instead of being trapped in a PDF.</p></article>
+        <article class="card"><small>03 / Extend</small><h3>Give participants useful exits</h3><p>LinkedIn, CV, website embed, QR, wallet, downloadable PDF and a public verification page come from the same credential record.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="path">
+    <div class="wrap">
+      <div class="eyebrow">Build path</div>
+      <h2>Start with the experience. Add trust underneath.</h2>
+      <div class="roadmap">
+        <article class="card"><small>Bite 1</small><h3>Desirable artefact</h3><p>One excellent credential page, print view, sharing, QR, CV embed and structured internal record.</p></article>
+        <article class="card"><small>Bite 2</small><h3>Open Badges 3.0</h3><p>Map the internal model to the standard and test compatibility against MIT/DCC examples and verifiers.</p></article>
+        <article class="card"><small>Bite 3</small><h3>Real verification</h3><p>Issuer identity, signing and independent verification. The page is no longer the source of truth — the credential is.</p></article>
+        <article class="card"><small>Bite 4</small><h3>Issuing workflow</h3><p>Create programmes, upload participants, preview, issue and manage credentials with a deliberately small organiser interface.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">The principle</div>
+      <p class="pitchline">The certificate should not be the end of the learning experience. <span class="accent">It should become reusable proof of it.</span></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="wrap">Digital Credentials Demo · Product pitch · September 2026<br><br>This page presents a concept and reference cases. The current demo credential is not yet a cryptographically signed credential from Implement Learning Institute or University of Basel.</div></footer>
+</body>
+</html>
