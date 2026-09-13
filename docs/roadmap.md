@@ -30,7 +30,15 @@ Remaining production trust work is organisational: move the demo issuer to an in
 
 ## Bite 4 — tiny issuer workflow
 
-Create/select achievement → CSV participant import → preview and approval → batch issuance → delivery links / email handoff.
+Status: implemented on `feat/bite-4-organiser-issuance`
+
+`issuer.html` is a five-step organiser surface: define the training, define the credential content, paste a `name,email` participant list, preview one participant's credential, issue the batch. Parsing, mapping and issuance run locally in `issuance.js`; issued records are deterministic and can be handed to the Bite 3.1 signing path unchanged.
+
+The point of the bite is the felt effort: create training → paste participants → preview → issue. The organiser surface stays calm and operational so the participant surface remains the premium one.
+
+Simulated, and deliberately so: issuance authority, signing, delivery, hosting, persistence and credential status. Every record carries `institutionallySigned: false`.
+
+See `docs/bite-4.md`.
 
 ## Explicit non-goals for now
 
