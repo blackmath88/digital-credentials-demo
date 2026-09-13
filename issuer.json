@@ -1,0 +1,16 @@
+{
+  "id": "https://github.com/blackmath88/digital-credentials-demo",
+  "type": "Profile",
+  "name": "Digital Credentials Demo",
+  "url": "https://github.com/blackmath88/digital-credentials-demo",
+  "description": "Prototype issuer used only for cryptographic interoperability testing. It does not represent Implement Learning Institute or University of Basel.",
+  "publicKeyJwk": {
+    "kty": "RSA",
+    "n": "xc928rvnn27JrLhL59T1jAwkrHndCkx_1fUAhTqnbU1QcDIW593NYOledWbnv4J_pPd64CR7biwRSEMBA-6g-m9FwmtwI7S7ptuZrwtZBCbZ7kR9Lx-rzyKd-5dsFURW-ca0QEWXJYWW_JGPvXUzSVPZvswjjLkOlAFBkMJw2ZRE62DTi-sUU0_XIeH6Bi3Y2ImHa_LQA1XBJP0hJgrVuHeLqRJPZgB4IVeoJiZpT5nKDo6g0vAI8H2MOvTUnpJ0U_3jgtHyBZIcFwsRyP2rqHim9LBQ92-NEKKxZoo05wUgVoHwt_ERB9wK1zrJBdF5WlrROH8UBiLWd1XlxAtDtQ",
+    "e": "AQAB",
+    "alg": "RS256",
+    "use": "sig",
+    "kid": "demo-rs256-2026-09"
+  },
+  "trustNotice": "A valid signature proves that this demo key signed the credential. It does not prove that Implement Learning Institute or University of Basel issued or endorsed it."
+}
