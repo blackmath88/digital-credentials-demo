@@ -40,6 +40,18 @@ Simulated, and deliberately so: issuance authority, signing, delivery, hosting, 
 
 See `docs/bite-4.md`.
 
+## Product story integration
+
+Status: implemented on `feat/product-story-integration`
+
+The technical bites proved the machinery but left an obvious question open: *isn't this just a nice HTML certificate generator?* This slice answers it inside the product rather than in a separate deck.
+
+`index.html` now carries the short version of the case — credential → what it actually is → why it matters to participants, organisers and institutions → the standard underneath → the three levels from better certificates to a credential ecosystem → a proposed University of Basel + Implement pilot → higher-ed reference points → an explicit trust boundary. Each claim in the "more than a certificate page" chain links to the surface in this repo that demonstrates it.
+
+`pitch.html` stays the long-form story and now points at the short version; `docs/product-case.md` is the written layer.
+
+Trust boundary is restated rather than relaxed: pilot models are proposals, reference cases are citations not endorsements, and every signed credential here is signed by a prototype demo issuer.
+
 ## Explicit non-goals for now
 
 No LMS. No badge marketplace. No blockchain. No learner social network. No sprawling admin SaaS.
