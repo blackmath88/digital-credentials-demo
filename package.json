@@ -1,0 +1,17 @@
+{
+  "name": "digital-credentials-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dcc:issue": "node tools/issue-dcc.mjs",
+    "dcc:verify": "node tools/verify-dcc.mjs",
+    "dcc:roundtrip": "npm run dcc:issue && npm run dcc:verify"
+  },
+  "dependencies": {
+    "@digitalbazaar/data-integrity": "^2.5.0",
+    "@digitalbazaar/ed25519-multikey": "^1.3.1",
+    "@digitalbazaar/eddsa-rdfc-2022-cryptosuite": "^1.3.0",
+    "jsonld": "^8.3.3",
+    "jsonld-signatures": "^11.6.0"
+  }
+}

@@ -1,0 +1,33 @@
+name: DCC compatibility
+
+on:
+  pull_request:
+    paths:
+      - 'package.json'
+      - 'tools/**'
+      - 'obv3/**'
+      - '.github/workflows/dcc-compat.yml'
+  workflow_dispatch:
+
+jobs:
+  dcc-roundtrip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Issue and verify DCC-style credential
+        run: npm run dcc:roundtrip
+      - name: Show generated proof shape
+        run: |
+          node -e "const c=require('./obv3/dcc-signed-credential.json'); const p=Array.isArray(c.proof)?c.proof[0]:c.proof; console.log({issuer:c.issuer.id, type:p.type, cryptosuite:p.cryptosuite, purpose:p.proofPurpose, verificationMethod:p.verificationMethod})"
+      - name: Upload generated public artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dcc-demo-public-artifacts
+          path: |
+            issuer-did.json
+            obv3/dcc-signed-credential.json

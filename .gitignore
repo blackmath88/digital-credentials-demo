@@ -5,7 +5,13 @@
 *.pfx
 .env
 .env.*
+.keys/
+
+# Bite 3.1 generated demo outputs (recreated by npm run dcc:roundtrip)
+issuer-did.json
+obv3/dcc-signed-credential.json
 
 # Common local noise
 .DS_Store
 __pycache__/
+node_modules/

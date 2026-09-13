@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DCC Compatibility Lab — Digital Credentials Demo</title>
+  <meta name="description" content="Bite 3.1: did:key + eddsa-rdfc-2022 + external verifier handoff for the Digital Credentials Demo.">
+  <style>
+    :root{--bg:#f2eee4;--paper:#fffdf8;--ink:#171715;--muted:#6d695f;--rule:#c9c0b2;--ok:#325b3a;--accent:#8d1e2d;--hold:#8a5a20}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+    a{color:inherit}.shell{max-width:1120px;margin:0 auto;padding:28px 28px 88px}.top{display:flex;justify-content:space-between;gap:18px;align-items:center;border-bottom:1px solid var(--rule);padding-bottom:16px}.eyebrow{font-size:12px;letter-spacing:.13em;text-transform:uppercase}.muted{color:var(--muted)}
+    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,7vw,84px);line-height:.98;font-weight:400;letter-spacing:-.045em;max-width:900px;margin:56px 0 22px}.lede{font-size:20px;max-width:780px;color:#3c3933}
+    .statusbar{margin:34px 0 8px;padding:18px 20px;background:#1d1e1b;color:#f4efe5;border:1px solid #1d1e1b;overflow:auto}.statusbar pre{margin:0;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:52px;border-left:1px solid var(--rule);border-top:1px solid var(--rule)}.card{background:rgba(255,255,255,.22);padding:24px;min-height:230px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.card small{letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}.card h2{font:400 28px/1.08 Georgia,"Times New Roman",serif;margin:15px 0}.card p{color:#45413b}.ok{color:var(--ok)}.hold{color:var(--hold)}
+    .chain{margin-top:62px;background:var(--paper);border:1px solid var(--rule);padding:30px}.chain h2,.handoff h2{font:400 42px/1.05 Georgia,"Times New Roman",serif;letter-spacing:-.025em;margin:0 0 22px}.flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.node{border:1px solid var(--rule);padding:13px 15px;background:#fff;font-size:14px}.arrow{color:var(--muted)}
+    .handoff{margin-top:26px;background:#20211e;color:#f5f0e7;padding:32px}.handoff p{max-width:800px;color:#d7d0c5}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}.step{border-top:1px solid #66635c;padding-top:14px}.step b{display:block;margin-bottom:8px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.button{display:inline-block;padding:10px 13px;border:1px solid currentColor;text-decoration:none;font-size:13px;background:transparent;color:inherit;cursor:pointer}.button.primary{background:#f5f0e7;color:#20211e;border-color:#f5f0e7}.output{margin-top:20px;padding:14px;border:1px solid #66635c;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;color:#ddd5c9;min-height:48px}
+    .boundary{margin-top:52px;border-top:1px solid var(--rule);padding-top:28px}.boundary strong{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:28px}.boundary p{max-width:780px}.code{font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;background:#e5dfd3;padding:14px 16px;overflow:auto}
+    footer{margin-top:60px;border-top:1px solid var(--rule);padding-top:18px;font-size:12px;color:var(--muted)}
+    @media(max-width:800px){.grid,.steps{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.flow{align-items:stretch;flex-direction:column}.arrow{transform:rotate(90deg);align-self:center}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top"><div class="eyebrow">Digital Credentials / DCC Compatibility Lab</div><nav><a href="./standards-lab.html">Standards lab</a> · <a href="./verify.html">Bite 3 verifier</a></nav></header>
+    <h1>From “signed by us” to a credential another verifier can understand.</h1>
+    <p class="lede">Bite 3.1 moves the demo onto the same trust shape used by MIT / Digital Credentials Consortium examples: a <strong>did:key</strong> issuer and a W3C Data Integrity proof using <strong>eddsa-rdfc-2022</strong>.</p>
+
+    <div class="statusbar" aria-label="Project status"><pre>Digital Credentials Demo
+
+Bite 1   [██████] participant experience       ✓
+Bite 2   [██████] Open Badges 3.0 mapping      ✓
+Bite 3   [██████] cryptographic proof           ✓
+Bite 3.1 [██████] DCC-compatible trust shape    ← NOW
+Bite 4   [░░░░░░] organiser issuance flow       next
+
+          [████████████████░░░░] ~80%</pre></div>
+
+    <section class="grid">
+      <article class="card"><small class="ok">1 · Issuer identity</small><h2>did:key</h2><p>The public identifier is derived directly from an Ed25519 Multikey. A verifier can resolve the verification material without trusting our webpage.</p></article>
+      <article class="card"><small class="ok">2 · Proof format</small><h2>DataIntegrityProof</h2><p>The signing path uses <code>eddsa-rdfc-2022</code>, matching the cryptosuite used in current MIT/DCC Open Badges examples.</p></article>
+      <article class="card"><small class="hold">3 · Institution trust</small><h2>Still deliberately separate</h2><p>This proves technical interoperability for a demo issuer. It does not make the demo issuer Implement or University of Basel.</p></article>
+    </section>
+
+    <section class="chain">
+      <h2>The trust chain</h2>
+      <div class="flow">
+        <span class="node">OpenBadgeCredential</span><span class="arrow">→</span>
+        <span class="node">Ed25519 key</span><span class="arrow">→</span>
+        <span class="node">did:key issuer</span><span class="arrow">→</span>
+        <span class="node">eddsa-rdfc-2022 proof</span><span class="arrow">→</span>
+        <span class="node">independent verifier</span>
+      </div>
+    </section>
+
+    <section class="handoff">
+      <h2>External verifier handoff</h2>
+      <p>Generate the credential locally, verify it with the repo's independent round-trip check, then take the generated JSON outside this application. VerifierPlus is the DCC reference surface we use for the manual compatibility check.</p>
+      <div class="steps">
+        <div class="step"><b>01 · Generate</b><span>Run <code>npm install</code> and <code>npm run dcc:roundtrip</code>.</span></div>
+        <div class="step"><b>02 · Take the artefact</b><span>Open <code>obv3/dcc-signed-credential.json</code>. The private key remains in the ignored <code>.keys/</code> directory.</span></div>
+        <div class="step"><b>03 · Verify elsewhere</b><span>Paste/import the credential into VerifierPlus. This tests the object outside our own verifier and UI.</span></div>
+      </div>
+      <div class="actions">
+        <button class="button primary" id="copyCredential">Copy generated credential JSON</button>
+        <a class="button" href="https://verifierplus.org/" target="_blank" rel="noreferrer">Open VerifierPlus ↗</a>
+        <a class="button" href="https://github.com/digitalcredentials/mit-learn-obv3-template" target="_blank" rel="noreferrer">MIT/DCC reference ↗</a>
+      </div>
+      <div class="output" id="output">Looking for obv3/dcc-signed-credential.json…</div>
+    </section>
+
+    <section class="boundary">
+      <strong>What this does — and does not — prove.</strong>
+      <p><strong>It proves:</strong> our product data can become an Open Badges 3.0 credential with a DCC-shaped issuer identifier and Data Integrity proof that an independent verifier can process.</p>
+      <p><strong>It does not prove:</strong> that Implement or University of Basel authorized the credential. For that, the signing identity and keys must be institution-controlled — preferably a production <code>did:web</code> or an institution-managed equivalent, with governance and revocation.</p>
+      <div class="code">npm install
+npm run dcc:roundtrip
+python3 -m http.server 8000
+# then open http://localhost:8000/dcc-lab.html</div>
+    </section>
+
+    <footer>Bite 3.1 · did:key · DataIntegrityProof · eddsa-rdfc-2022 · external verification handoff</footer>
+  </main>
+  <script>
+    const output = document.getElementById('output');
+    const button = document.getElementById('copyCredential');
+    let generated = null;
+    fetch('./obv3/dcc-signed-credential.json', {cache:'no-store'})
+      .then(r => { if(!r.ok) throw new Error('not generated'); return r.json(); })
+      .then(data => {
+        generated = data;
+        const proof = Array.isArray(data.proof) ? data.proof[0] : data.proof;
+        output.textContent = `READY\nissuer: ${data.issuer?.id}\nproof: ${proof?.type} / ${proof?.cryptosuite}\nverificationMethod: ${proof?.verificationMethod}`;
+      })
+      .catch(() => {
+        output.textContent = 'No generated credential yet. Run: npm install && npm run dcc:roundtrip';
+      });
+    button.addEventListener('click', async () => {
+      if(!generated) { output.textContent = 'Generate the credential first: npm install && npm run dcc:roundtrip'; return; }
+      await navigator.clipboard.writeText(JSON.stringify(generated, null, 2));
+      button.textContent = 'Copied';
+      setTimeout(() => button.textContent = 'Copy generated credential JSON', 1400);
+    });
+  </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 A small, standards-oriented prototype for turning a training certificate into a durable digital credential that people can understand, keep, share and verify.
 
-The first fixture is a digital representation of an existing **Change Management Training** certificate from Implement Learning Institute (26 August 2025). It is intentionally presented as a **demo representation**. The signed Bite 3 credential is issued only by the prototype demo issuer — not by Implement Learning Institute or University of Basel.
+The first fixture is a digital representation of an existing **Change Management Training** certificate from Implement Learning Institute (26 August 2025). It is intentionally presented as a **demo representation**. The signed demo credentials are issued only by prototype demo issuers — not by Implement Learning Institute or University of Basel.
 
 ## Pitch page
 
@@ -22,21 +22,33 @@ The product record is mapped to an `OpenBadgeCredential` and shown in `standards
 
 ### Bite 3 — cryptographic proof
 
-The repo now contains a genuinely signed demo credential using the Open Badges 3.0 RS256 VC-JWT route, a public demo issuer key, a reproducible issuer tool and a browser verifier built on Web Crypto.
+The repo contains a genuinely signed demo credential using the Open Badges 3.0 RS256 VC-JWT route, a public demo issuer key, a reproducible issuer tool and a browser verifier built on Web Crypto. `verify.html` includes a tamper test that demonstrates that changing signed data breaks verification.
 
-`verify.html` performs three distinct checks:
+### Bite 3.1 — DCC-compatible trust shape
 
-1. **signature integrity** — the exact JWT bytes verify with the public key;
-2. **credential structure** — issuer, IDs, subject, type and time claims are internally consistent;
-3. **demo issuer key match** — the credential key matches `issuer.json`.
+A second issuance path now mirrors current MIT/Digital Credentials Consortium examples:
 
-The tamper test modifies one signed field in memory and demonstrates that signature verification fails immediately.
+- Ed25519 `Multikey`
+- `did:key` issuer identity
+- `DataIntegrityProof`
+- `eddsa-rdfc-2022`
+- Open Badges 3.0 / W3C VC 2.0 credential shape
+- local issue → verify roundtrip
+- GitHub Actions interoperability check
+- manual handoff to VerifierPlus
 
-This is real cryptographic verification, but **not yet institutional trust**. A production pilot still needs an institution-controlled issuer identity / key lifecycle and external verifier interoperability.
+Run:
 
-### Run locally
+```bash
+npm install
+npm run dcc:roundtrip
+```
 
-No frontend build step is required.
+This generates the public `issuer-did.json` and `obv3/dcc-signed-credential.json`; private key material remains under ignored `.keys/`.
+
+This proves a DCC-compatible technical trust path, but **not institutional authority**. A real pilot still needs an institution-controlled identity, key custody, issuance governance and status/revocation.
+
+### Run the visual demo
 
 ```bash
 python3 -m http.server 8000
@@ -47,7 +59,8 @@ Then open:
 - `http://localhost:8000` — participant credential demo
 - `http://localhost:8000/pitch.html` — product pitch
 - `http://localhost:8000/standards-lab.html` — Open Badges mapping
-- `http://localhost:8000/verify.html` — cryptographic verification + tamper test
+- `http://localhost:8000/verify.html` — Bite 3 cryptographic verification + tamper test
+- `http://localhost:8000/dcc-lab.html` — Bite 3.1 DCC compatibility / external-verifier handoff
 
 ## Project map
 
@@ -55,16 +68,20 @@ Then open:
 - `pitch.html` — visual product pitch
 - `standards-lab.html` — Bite 2 standards mapping
 - `verify.html` / `verify.js` — Bite 3 cryptographic verification surface
+- `dcc-lab.html` — Bite 3.1 DCC compatibility surface
 - `credential.json` — product-domain source record
 - `obv3/credential-draft.json` — unsigned Open Badges 3.0 mapping
-- `obv3/credential-jwt-payload.json` — signed credential payload
-- `obv3/credential-jwt.txt` — compact signed demo credential
-- `issuer.json` — public demo issuer key/profile
-- `tools/issue-demo.py` — reproducible local RS256 issuer tool
-- `tools/README.md` — local key generation / issuance instructions
+- `obv3/credential-jwt-payload.json` / `credential-jwt.txt` — Bite 3 signed VC-JWT artefacts
+- `obv3/dcc-credential-template.json` — Bite 3.1 DCC-style credential input
+- `issuer.json` — Bite 3 public RSA demo issuer key/profile
+- `tools/issue-demo.py` — Bite 3 RS256 issuer tool
+- `tools/dcc-lib.mjs` — DID / JSON-LD helpers
+- `tools/issue-dcc.mjs` — Ed25519 + Data Integrity issuer
+- `tools/verify-dcc.mjs` — independent Data Integrity roundtrip check
+- `.github/workflows/dcc-compat.yml` — CI issue → verify interoperability check
+- `docs/bite-3-1.md` — DCC compatibility and trust-boundary notes
 - `docs/concept.md` — product thesis and scope
 - `docs/standards.md` — Open Badges 3.0 + MIT/DCC path
-- `docs/bite-2.md` / `docs/bite-3-plan.md` — implementation notes
 - `docs/pitch-unibas.md` — University of Basel conversation brief
 - `docs/pitch-implement.md` — Implement conversation brief
 - `docs/architecture.md` — technical shape and trust boundary
@@ -77,15 +94,17 @@ Then open:
 3. A recipient can use it on LinkedIn, a CV, or a personal website.
 4. Its underlying representation maps cleanly to Open Badges 3.0.
 5. Credential integrity can be checked without trusting the display page.
-6. Issuing 20 credentials looks easier than manually producing 20 PDFs.
-7. The demo is credible enough to start a conversation with University of Basel L&D and Implement Consulting Group.
+6. A second verifier can understand the credential proof shape.
+7. Issuing 20 credentials looks easier than manually producing 20 PDFs.
+8. The demo is credible enough to start a conversation with University of Basel L&D and Implement Consulting Group.
 
 ## Standards direction
 
-The implementation path targets **1EdTech Open Badges 3.0**, using the MIT Digital Credentials Consortium's published OBv3 course-certificate examples as practical interoperability fixtures.
+The implementation targets **1EdTech Open Badges 3.0** and uses MIT Digital Credentials Consortium examples as practical interoperability fixtures.
 
 - 1EdTech Open Badges: https://www.1edtech.org/standards/open-badges
 - MIT/DCC OBv3 examples: https://github.com/digitalcredentials/mit-learn-obv3-template
 - DCC VerifierPlus: https://verifierplus.org/
+- EdDSA RDFC 2022 cryptosuite: https://github.com/digitalbazaar/eddsa-rdfc-2022-cryptosuite
 
-The current signed sample deliberately uses a prototype issuer. For a real pilot, the next trust step is an institution-controlled `did:key` or `did:web` identity with a DCC-compatible Data Integrity proof and external verification.
+The next product bite is the tiny organiser workflow: define an achievement → import participants → preview → issue → deliver.
